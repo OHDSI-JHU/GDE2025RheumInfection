@@ -1,20 +1,20 @@
-Estimation of risk of NAION and other vision disorders from exposure to semaglutide
+Estimation of risk of infection in rheumatological patients with exposure to DMARDs
 =============
 
 <img src="https://img.shields.io/badge/Study%20Status-Results%20Available-yellow.svg" alt="Study Status: Results Available">
 
 - Analytics use case(s): **Population-Level Estimation**
 - Study type: **Clinical Application**
-- Tags: **Eye Care & Vision Research, Type 2 Diabetes**
-- Study lead: **Cindy X. Cai**
-- Study lead forums tag: **[[Cindy X. Cai]](https://forums.ohdsi.org/u/cindyxcai)**
-- Study start date: **-**
+- Tags: **Rheumatology, Infection, DMARD**
+- Study lead: **Christopher Mecoli**
+- Study lead forums tag: **[[Christopher Mecoli]](https://forums.ohdsi.org/u/christopher_mecoli)**
+- Study start date: **February 2025**
 - Study end date: **-**
-- Protocol: **<a href="https://ohdsi-studies.github.io/SemaglutideNaion/protocol.html">HTML Document</a>**
+- Protocol: ****
 - Publications: **-**
-- Results explorer: **https://results.ohdsi.org/**
+- Results explorer: ****
 
-OHDSI network study for population-level effect estimation of risk of NAION and other vision disorders from exposure to semaglutide.
+OHDSI network study for population-level effect estimation of risk of infection in rheumatological patients treated with DMARDs.
 
 # How to run the study
 
@@ -89,7 +89,7 @@ ignore this message moving forward. At this point you are ready to run the study
 ## Running the study
 
 Open the file `StrategusCodeToRun.R` found in the root of your study package
-directory (e.g. `D:/git/ohdsi-studies/SemaglutideNaion`). This script will
+directory (e.g. `D:/git/ohdsi-studies/GDE2025RheumInfection`). This script will
 require some modification to work in your environment. At the top of the 
 script, you will a commented out note to tell you to run `renv::restore()`. If 
 you followed the earlier instructions, this is not necessary but is a reminder.
@@ -115,7 +115,7 @@ The next block of code will require edits for your environment:
 ##=========== START OF INPUTS ==========
 cdmDatabaseSchema <- "main"
 workDatabaseSchema <- "main"
-outputLocation <- 'D:/git/ohdsi-studies/SemaglutideNaion'
+outputLocation <- 'D:/git/ohdsi-studies/GDE2025RheumInfection'
 databaseName <- "Eunomia" # Only used as a folder name for results from the study
 minCellCount <- 5
 cohortTableName <- "sema_naion"
