@@ -1,0 +1,15 @@
+conceptId,cdmSourceAbbreviation,covariateShortName,mean1,mean2,stdDiff
+40244464,IBM CCAE, ruxolitinib,0.999654178674352,0,76.035079623379
+40244464,PharMetrics, ruxolitinib,0.999261311172668,0,52.0144210772319
+40244464,OPTUM Extended DOD, ruxolitinib,0.99671412924425,0,24.6306042692144
+40244464,AMBULATORY EMR, ruxolitinib,0.995603187688925,0,21.2808599450301
+4203722,PharMetrics, Patient encounter procedure,0.0253000923361034,0.423737539195956,-1.08673822713847
+4203722,IBM CCAE, Patient encounter procedure,0.0192507204610951,0.356024946768581,-0.956082909634561
+4319466,IBM CCAE," Complete blood count with white cell differential, automated",0.0232853025936599,0.36079806997748,-0.948268020917431
+4203722,OPTUM Extended DOD, Patient encounter procedure,0.0293537787513691,0.320192502855019,-0.829005197477421
+2212093,IBM CCAE," Comprehensive metabolic panel This panel must include the following: Albumin (82040) Bilirubin, total (82247) Calcium, total (82310) Carbon dioxide (bicarbonate) (82374) Chloride (82435) Creatinine (82565) Glucose (82947) Phosphatase, alkaline (84075) Pot",0.0223631123919308,0.271279584157574,-0.751280191725028
+38003354,OPTUM Extended DOD, Drugs Identification - Drugs Requiring Detailed Coding,0.0194961664841183,0.24642664129959,-0.709128964566357
+4203722,IBM MDCR, Patient encounter procedure,0.0194331983805668,0.212130837840323,-0.631563231404953
+2212093,PharMetrics," Comprehensive metabolic panel This panel must include the following: Albumin (82040) Bilirubin, total (82247) Calcium, total (82310) Carbon dioxide (bicarbonate) (82374) Chloride (82435) Creatinine (82565) Glucose (82947) Phosphatase, alkaline (84075) Pot",0.0491228070175439,0.250851195769177,-0.588960219703649
+38003354,IBM MDCR, Drugs Identification - Drugs Requiring Detailed Coding,0.0242914979757085,0.203746583186351,-0.58855872603643
+40244464,IBM MDCR, ruxolitinib,1,0,
