@@ -27,3 +27,11 @@ atlas_id,cohort_id,cohort_name,logic_description,generate_stats
 1791945,1791945,varicella zoster (Specific),NA,TRUE
 1792481,1792481,varicella zoster (New),NA,TRUE
 1792205,1792205,PML,NA,TRUE
+1794247,rituximab exposures,NA,TRUE
+1794245,JAKi exposures,NA,TRUE
+1794244,MMF exposures,NA,TRUE
+1794243,IVIG exposures,NA,TRUE
+1794239,Uveitis,NA,TRUE
+1794240,SLE,NA,TRUE
+1794241,SSc,NA,TRUE
+1794242,DM,NA,TRUE
