@@ -30,60 +30,37 @@ cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
 )
 
 tcis <- list(
-  list(
-    targetId = 1794247,  # rituximab exposures
-    comparatorId = 1794245,  # JAKi exposures
-    indicationId = 1794240,  # SLE
-    genderConceptIds = c(8507, 8532),
-    minAge = NULL,
-    maxAge = NULL,
-    excludedCovariateConceptIds = c()
-  ),
-  list(
-    targetId = 1794247,  # rituximab exposures
-    comparatorId = 1794244,  # MMF exposures
-    indicationId = 1794240,  # SLE
-    genderConceptIds = c(8507, 8532),
-    minAge = NULL,
-    maxAge = NULL,
-    excludedCovariateConceptIds = c()
-  ),
-  list(
-    targetId = 1794247,  # rituximab exposures
-    comparatorId = 1794243,  # IVIG exposures
-    indicationId = 1794240,  # SLE
-    genderConceptIds = c(8507, 8532),
-    minAge = NULL,
-    maxAge = NULL,
-    excludedCovariateConceptIds = c()
-  ),
-  list(
-    targetId = 1794245,  # JAKi exposures
-    comparatorId = 1794244,  # MMF exposures
-    indicationId = 1794240,  # SLE
-    genderConceptIds = c(8507, 8532),
-    minAge = NULL,
-    maxAge = NULL,
-    excludedCovariateConceptIds = c()
-  ),
-  list(
-    targetId = 1794245,  # JAKi exposures
-    comparatorId = 1794243,  # IVIG exposures
-    indicationId = 1794240,  # SLE
-    genderConceptIds = c(8507, 8532),
-    minAge = NULL,
-    maxAge = NULL,
-    excludedCovariateConceptIds = c()
-  ),
-  list(
-    targetId = 1794244,  # MMF exposures
-    comparatorId = 1794243,  # IVIG exposures
-    indicationId = 1794240,  # SLE
-    genderConceptIds = c(8507, 8532),
-    minAge = NULL,
-    maxAge = NULL,
-    excludedCovariateConceptIds = c()
-  )
+  # ---------------- SLE (1794240) ----------------
+  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+
+  # ---------------- Uveitis (1794239) ----------------
+  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+
+  # ---------------- SSc (1794241) ----------------
+  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+
+  # ---------------- DM (1794242) ----------------
+  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c())
 )
 
 
