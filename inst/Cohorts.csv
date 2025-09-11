@@ -1,24 +1,4 @@
 atlas_id,cohort_id,cohort_name,logic_description,generate_stats
-1794207,1794207, first IVIG - Uveitis,NA,TRUE
-1794206,1794206, first IVIG - SLE,NA,TRUE
-1794205,1794205, first IVIG - SSc,NA,TRUE
-1794204,1794204, first IVIG - All,NA,TRUE
-1794203,1794203, first IVIG - DM,NA,TRUE
-1794199,1794199, first MMF - All,NA,TRUE
-1794067,1794067, first MMF - SSc,NA,TRUE
-1794065,1794065, first MMF - Uveitis,NA,TRUE
-1794063,1794063, first MMF - SLE,NA,TRUE
-1794062,1794062, first MMF- DM,NA,TRUE
-1794201,1794201, first JAKi - Uveitis,NA,TRUE
-1794200,1794200, first JAKi - All,NA,TRUE
-1794061,1794061, first JAKi - SLE,NA,TRUE
-1794064,1794064, first JAKi - DM,NA,TRUE
-1794066,1794066, first JAKi - SSc,NA,TRUE
-1794056,1794056, first rituximab - Uveitis,NA,TRUE
-1794053,1794053, first rituximab - SLE,NA,TRUE
-1794059,1794059, first rituximab - All,NA,TRUE
-1794054,1794054, first rituximab- DM,NA,TRUE
-1794055,1794055, first rituximab - SSc,NA,TRUE
 1791985,1791985,pneumocystis pneumonia (Total),NA,TRUE
 1792492,1792492,pneumocystis pneumonia (Case1),NA,TRUE
 1792493,1792493,pneumocystis pneumonia (Case2),NA,TRUE
