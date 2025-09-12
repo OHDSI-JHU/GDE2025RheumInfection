@@ -34,6 +34,7 @@ cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
     1791945, # varicella zoster (Specific)
     1792481, # varicella zoster (New)
     1792205, # PML
+    1793889, # Hospitalized Infection
     1794247, # rituximab exposures
     1794245, # JAKi exposures
     1794244, # MMF exposures
@@ -56,6 +57,7 @@ name_map <- list(
   `1791945` = "varicella zoster (Specific)",
   `1792481` = "varicella zoster (New)",
   `1792205` = "PML",
+  '1793889' = "Hospitalized Infection",
   `1794247` = "rituximab exposures",
   `1794245` = "JAKi exposures",
   `1794244` = "MMF exposures",
