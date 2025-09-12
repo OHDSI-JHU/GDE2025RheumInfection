@@ -74,11 +74,12 @@ outcomes <- tibble(
     1791944, # varicella zoster (Sensitive)
     1791945, # varicella zoster (Specific)
     1792481, # varicella zoster (New)
-    1792205  # PML
+    1792205, # PML
+    1793889  # Hospitalized Infection
   ),
   cleanWindow = c(
     365, 365, 365, 365,
-    365, 365, 365, 365
+    365, 365, 365, 365, 365
   )
 )
 
@@ -107,7 +108,7 @@ plpTimeAtRisks <- tibble(
 )
 # If you are not restricting your study to a specific time window, 
 # please make these strings empty
-studyStartDate <- '20000101' #YYYYMMDD
+studyStartDate <- '19000101' #YYYYMMDD
 studyEndDate <- '20251231'   #YYYYMMDD
 # Some of the settings require study dates with hyphens
 studyStartDateWithHyphens <- gsub("(\\d{4})(\\d{2})(\\d{2})", "\\1-\\2-\\3", studyStartDate)
