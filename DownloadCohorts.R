@@ -49,23 +49,23 @@ cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
 
 # ---- rename cohorts to match your preferred labels ------------------------
 name_map <- list(
-  `1791985` = "pneumocystis pneumonia (Total)",
-  `1792492` = "pneumocystis pneumonia (Case1)",
-  `1792493` = "pneumocystis pneumonia (Case2)",
-  `1792494` = "pneumocystis pneumonia (Case3)",
-  `1791944` = "varicella zoster (Sensitive)",
-  `1791945` = "varicella zoster (Specific)",
-  `1792481` = "varicella zoster (New)",
-  `1792205` = "PML",
+  '1791985' = "pneumocystis pneumonia (Total)",
+  '1792492' = "pneumocystis pneumonia (Case1)",
+  '1792493' = "pneumocystis pneumonia (Case2)",
+  '1792494' = "pneumocystis pneumonia (Case3)",
+  '1791944' = "varicella zoster (Sensitive)",
+  '1791945' = "varicella zoster (Specific)",
+  '1792481' = "varicella zoster (New)",
+  '1792205' = "PML",
   '1793889' = "Hospitalized Infection",
-  `1794247` = "rituximab exposures",
-  `1794245` = "JAKi exposures",
-  `1794244` = "MMF exposures",
-  `1794243` = "IVIG exposures",
-  `1794239` = "Uveitis",
-  `1794240` = "SLE",
-  `1794241` = "SSc",
-  `1794242` = "DM"
+  '1794247' = "rituximab exposures",
+  '1794245' = "JAKi exposures",
+  '1794244' = "MMF exposures",
+  '1794243' = "IVIG exposures",
+  '1794239' = "Uveitis",
+  '1794240' = "SLE",
+  '1794241' = "SSc",
+  '1794242' = "DM"
 )
 
 cohortDefinitionSet$atlasId <- cohortDefinitionSet$cohortId  # keep original ATLAS IDs
