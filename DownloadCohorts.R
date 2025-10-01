@@ -19,8 +19,7 @@ baseUrl <- "https://atlas-demo.ohdsi.org/WebAPI"
 #   baseUrl = baseUrl,
 #   authMethod = "windows"
 # )
-# ---- inputs ---------------------------------------------------------------
-baseUrl  <- Sys.getenv("WEBAPI")   # <- or set a literal URL
+
 
 # ---- export from WebAPI ---------------------------------------------------
 cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
@@ -77,14 +76,14 @@ for (i in seq_len(nrow(cohortDefinitionSet))) {
 }
 
 # ---- re-number cohorts sequentially (1..N) --------------------------------
-cohortDefinitionSet$cohortId <- seq_len(nrow(cohortDefinitionSet))
+#cohortDefinitionSet$cohortId <- seq_len(nrow(cohortDefinitionSet))
 
 # ---- save cohort definition set -------------------------------------------
 CohortGenerator::saveCohortDefinitionSet(
   cohortDefinitionSet = cohortDefinitionSet,
-  settingsFileName    = "inst/sampleStudy/Cohorts.csv",
-  jsonFolder          = "inst/sampleStudy/cohorts",
-  sqlFolder           = "inst/sampleStudy/sql/sql_server"
+  settingsFileName    = "inst/Cohorts.csv",
+  jsonFolder          = "inst/cohorts",
+  sqlFolder           = "inst/sql/sql_server"
 )
 
 
@@ -121,6 +120,6 @@ negativeControlOutcomeCohortSet <- map_dfr(seq_along(conceptIds), function(i) {
 # Save to CSV
 CohortGenerator::writeCsv(
   x = negativeControlOutcomeCohortSet,
-  file = "inst/sampleStudy/negativeControlOutcomes.csv",
+  file = "inst/negativeControlOutcomes.csv",
   warnOnFileNameCaseMismatch = FALSE
 )
