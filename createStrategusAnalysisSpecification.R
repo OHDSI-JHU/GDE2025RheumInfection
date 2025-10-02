@@ -1,6 +1,6 @@
 library(dplyr)
 library(Strategus)
-rootFolder <- "D:/git/ohdsi-studies/SemaglutideNaion"
+rootFolder <- "D:/git/ohdsi-studies/GDE2025RheumInfection"
 
 
 timeAtRisks <- tibble(
@@ -10,11 +10,11 @@ timeAtRisks <- tibble(
   riskWindowEnd  = c(0),
   endAnchor = c("cohort end")
 )
-studyStartDate <- '20171201' #YYYYMMDD
-studyEndDate <- '20231231'   #YYYYMMDD
+studyStartDate <- '19000101' #YYYYMMDD
+studyEndDate <- '20251231'   #YYYYMMDD
 # This is lame but has to be done
-studyStartDateWithHyphens <- '2017-12-01' #YYYYMMDD
-studyEndDateWithHyphens <- '2023-12-31'   #YYYYMMDD
+studyStartDateWithHyphens <- '1900-01-01' #YYYYMMDD
+studyEndDateWithHyphens <- '2025-12-31'   #YYYYMMDD
 
 
 # Probably don't change below this line ----------------------------------------

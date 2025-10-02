@@ -24,43 +24,53 @@ library(Strategus)
 # study to retrieve the cohorts you downloaded as part of
 # DownloadCohorts.R
 cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
-  settingsFileName = "inst/sampleStudy/Cohorts.csv",
-  jsonFolder = "inst/sampleStudy/cohorts",
-  sqlFolder = "inst/sampleStudy/sql/sql_server"
+  settingsFileName = "inst/Cohorts.csv",
+  jsonFolder = "inst/cohorts",
+  sqlFolder = "inst/sql/sql_server"
 )
+
+
+excludedCovariates_JAKi_IVIG = read.csv("inst/excludedCovariates_JAKi_IVIG.csv")
+excludedCovariates_JAKi_MMF = read.csv("inst/excludedCovariates_JAKi_MMF.csv")
+excludedCovariates_JAKi_RTX = read.csv("inst/excludedCovariates_JAKi_RTX.csv")
+excludedCovariates_MMF_IVIG = read.csv("inst/excludedCovariates_MMF_IVIG.csv")
+excludedCovariates_RTX_IVIG = read.csv("inst/excludedCovariates_RTX_IVIG.csv")
+excludedCovariates_RTX_MMF = read.csv("inst/excludedCovariates_RTX_MMF.csv")
+
+
 
 tcis <- list(
   # ---------------- SLE (1794240) ----------------
-  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_RTX$conceptId),
+  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_RTX_MMF$conceptId),
+  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_RTX_IVIG$conceptId),
+  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_MMF$conceptId),
+  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_IVIG$conceptId),
+  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_MMF_IVIG$conceptId),
 
   # ---------------- Uveitis (1794239) ----------------
-  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_RTX$conceptId),
+  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_RTX_MMF$conceptId),
+  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_RTX_IVIG$conceptId),
+  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_MMF$conceptId),
+  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_IVIG$conceptId),
+  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794239, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_MMF_IVIG$conceptId),
 
   # ---------------- SSc (1794241) ----------------
-  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
+  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_RTX$conceptId),
+  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_RTX_MMF$conceptId),
+  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_RTX_IVIG$conceptId),
+  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_MMF$conceptId),
+  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_IVIG$conceptId),
+  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794241, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_MMF_IVIG$conceptId),
 
   # ---------------- DM (1794242) ----------------
-  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c()),
-  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = c())
+  list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_RTX$conceptId),
+  list(targetId = 1794247, comparatorId = 1794244, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_RTX_MMF$conceptId),
+  list(targetId = 1794247, comparatorId = 1794243, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_RTX_IVIG$conceptId),
+  list(targetId = 1794245, comparatorId = 1794244, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_MMF$conceptId),
+  list(targetId = 1794245, comparatorId = 1794243, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_IVIG$conceptId),
+  list(targetId = 1794244, comparatorId = 1794243, indicationId = 1794242, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_MMF_IVIG$conceptId)
 )
 
 
@@ -75,11 +85,11 @@ outcomes <- tibble(
     1791945, # varicella zoster (Specific)
     1792481, # varicella zoster (New)
     1792205, # PML
-    1793889  # Hospitalized Infection
+    1793889  # Hospitalized Infection - skipping for now due to runtime
   ),
   cleanWindow = c(
     365, 365, 365, 365,
-    365, 365, 365, 365, 365
+    365, 365, 365, 365, 365   # removed one clean window to line up with number of outcomes
   )
 )
 
@@ -100,12 +110,12 @@ sccsTimeAtRisks <- tibble(
   endAnchor = c("cohort end", "cohort end")
 )
 # Try to use fixed-time TARs for patient-level prediction:
-plpTimeAtRisks <- tibble(
-  riskWindowStart  = c(1, 1),
-  startAnchor = c("cohort start", "cohort start"),
-  riskWindowEnd  = c(365, 365),
-  endAnchor = c("cohort start", "cohort start"),
-)
+# plpTimeAtRisks <- tibble(
+#   riskWindowStart  = c(1, 1),
+#   startAnchor = c("cohort start", "cohort start"),
+#   riskWindowEnd  = c(365, 365),
+#   endAnchor = c("cohort start", "cohort start"),
+# )
 # If you are not restricting your study to a specific time window, 
 # please make these strings empty
 studyStartDate <- '19000101' #YYYYMMDD
@@ -178,8 +188,10 @@ for (i in 1:nrow(dfUniqueSubsetCriteria)) {
       cohortIds = uniqueSubsetCriteria$indicationId,
       negate = FALSE,
       cohortCombinationOperator = "all",
-      startWindow = CohortGenerator::createSubsetCohortWindow(-99999, 0, "cohortStart"),
-      endWindow = CohortGenerator::createSubsetCohortWindow(0, 99999, "cohortStart")
+      windows = list(
+        CohortGenerator::createSubsetCohortWindow(-99999, 0, "cohortStart"),
+        CohortGenerator::createSubsetCohortWindow(0, 99999, "cohortStart")
+      )
     )
   }
   subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubset(
@@ -229,7 +241,7 @@ for (i in 1:nrow(dfUniqueSubsetCriteria)) {
 }
 
 negativeControlOutcomeCohortSet <- CohortGenerator::readCsv(
-  file = "inst/sampleStudy/negativeControlOutcomes.csv"
+  file = "inst/negativeControlOutcomes.csv"
 )
 
 if (any(duplicated(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet$cohortId))) {
@@ -237,6 +249,7 @@ if (any(duplicated(cohortDefinitionSet$cohortId, negativeControlOutcomeCohortSet
 }
 
 # CohortGeneratorModule --------------------------------------------------------
+
 cgModuleSettingsCreator <- CohortGeneratorModule$new()
 cohortDefinitionShared <- cgModuleSettingsCreator$createCohortSharedResourceSpecifications(cohortDefinitionSet)
 negativeControlsShared <- cgModuleSettingsCreator$createNegativeControlOutcomeCohortSharedResourceSpecifications(
@@ -270,6 +283,14 @@ allCohortIdsExceptOutcomes <- cohortDefinitionSet %>%
   filter(!cohortId %in% outcomes$cohortId) %>%
   pull(cohortId)
 
+# Create time at risk settings separately - this is for older versions of the Characterization package
+# timeAtRiskSettings <- data.frame(
+#   riskWindowStart = timeAtRisks$riskWindowStart,
+#   startAnchor = timeAtRisks$startAnchor,
+#   riskWindowEnd = timeAtRisks$riskWindowEnd,
+#   endAnchor = timeAtRisks$endAnchor
+# )
+
 characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpecifications(
   targetIds = allCohortIdsExceptOutcomes,
   outcomeIds = outcomes$cohortId,
@@ -282,7 +303,9 @@ characterizationModuleSpecifications <- cModuleSettingsCreator$createModuleSpeci
   riskWindowEnd = timeAtRisks$riskWindowEnd, 
   endAnchor = timeAtRisks$endAnchor,
   minCharacterizationMean = .01
+#  timeAtRisk = timeAtRiskSettings  # Pass as a single object - this is for older versions of the Characterization package
 )
+
 
 
 # CohortIncidenceModule --------------------------------------------------------
@@ -498,13 +521,23 @@ for (i in seq_len(nrow(timeAtRisks))) {
     fitOutcomeModelArgs = fitOutcomeModelArgs
   )
 }
+
+cmDiagnosticThresholds <- CohortMethod::createCmDiagnosticThresholds(
+  mdrrThreshold = Inf,
+  easeThreshold = 0.3,
+  sdmThreshold = 0.2,
+  equipoiseThreshold = 0.15,
+  attritionFractionThreshold = NULL,
+  generalizabilitySdmThreshold = 1
+)
+
 cohortMethodModuleSpecifications <- cmModuleSettingsCreator$createModuleSpecifications(
   cmAnalysisList = cmAnalysisList,
   targetComparatorOutcomesList = targetComparatorOutcomesList,
   analysesToExclude = NULL,
   refitPsForEveryOutcome = FALSE,
-  refitPsForEveryStudyPopulation = FALSE,  
-  cmDiagnosticThresholds = CohortMethod::createCmDiagnosticThresholds()
+  refitPsForEveryStudyPopulation = TRUE,  
+  cmDiagnosticThresholds = cmDiagnosticThresholds
 )
 
 
@@ -542,7 +575,7 @@ for (targetId in uniqueTargetIds) {
     eoList[[length(eoList) + 1]] <- SelfControlledCaseSeries::createExposuresOutcome(
       outcomeId = outcomeId,
       exposures = list(SelfControlledCaseSeries::createExposure(
-        exposureId = targetId, 
+        exposureId = targetId,
         trueEffectSize = 1
       ))
     )
@@ -554,8 +587,7 @@ for (i in seq_len(nrow(uniqueTargetIndications))) {
   targetIndication <- uniqueTargetIndications[i, ]
   getDbSccsDataArgs <- SelfControlledCaseSeries::createGetDbSccsDataArgs(
     maxCasesPerOutcome = maxCasesPerOutcome,
-    useNestingCohort = !is.na(targetIndication$indicationId),
-    nestingCohortId = targetIndication$indicationId,
+    nestingCohortId = if(!is.na(targetIndication$indicationId)) targetIndication$indicationId else NULL,
     studyStartDate = studyStartDate,
     studyEndDate = studyEndDate,
     deleteCovariatesSmallCount = 0
@@ -653,86 +685,105 @@ analysesToExclude <- expand.grid(
   analysisId = unique(analysisToInclude$analysisId)
 ) %>%
   anti_join(analysisToInclude, by = join_by(exposureId, analysisId))
-selfControlledModuleSpecifications <- sccsModuleSettingsCreator$createModuleSpecifications(
+
+# Create the sccsAnalysesSpecifications object for v6
+sccsAnalysesSpecifications <- SelfControlledCaseSeries::createSccsAnalysesSpecifications(
   sccsAnalysisList = sccsAnalysisList,
   exposuresOutcomeList = eoList,
-  analysesToExclude = analysesToExclude,
   combineDataFetchAcrossOutcomes = FALSE,
-  sccsDiagnosticThresholds = SelfControlledCaseSeries::createSccsDiagnosticThresholds()
+  sccsDiagnosticThresholds = SelfControlledCaseSeries::createSccsDiagnosticThresholds(
+    mdrrThreshold = Inf,
+    easeThreshold = 0.25,
+    timeTrendMaxRatio = 1.1,
+    rareOutcomeMaxPrevalence = 0.1
+#    eventObservationDependenceNullBounds = c(0.5, 2),
+#    eventExposureDependenceNullBounds =  c(0.8, 1.25)
+  )
 )
 
-# PatientLevelPredictionModule -------------------------------------------------
-plpModuleSettingsCreator <- PatientLevelPredictionModule$new()
-modelDesignList <- list()
-uniqueTargetIds <- unique(unlist(lapply(tcis, function(x) { c(x$targetId ) })))
-dfUniqueTis <- dfUniqueTcis[dfUniqueTcis$cohortId %in% uniqueTargetIds, ]
-for (i in 1:nrow(dfUniqueTis)) {
-  tci <- dfUniqueTis[i,]
-  cohortId <- cohortDefinitionSet %>% 
-    filter(subsetParent == tci$cohortId & subsetDefinitionId == tci$subsetDefinitionId) %>%
-    pull(cohortId)
-  for (j in seq_len(nrow(plpTimeAtRisks))) {
-    for (k in seq_len(nrow(outcomes))) {
-      if (useCleanWindowForPriorOutcomeLookback)
-        priorOutcomeLookback <- outcomes$cleanWindow[k]
-      else
-        priorOutcomeLookback <- 99999
-      modelDesignList[[length(modelDesignList) + 1]] <- PatientLevelPrediction::createModelDesign(
-        targetId = cohortId,
-        outcomeId = outcomes$cohortId[k],
-        restrictPlpDataSettings = PatientLevelPrediction::createRestrictPlpDataSettings(
-          sampleSize = plpMaxSampleSize,
-          studyStartDate = studyStartDate,
-          studyEndDate = studyEndDate,
-          firstExposureOnly = FALSE,
-          washoutPeriod = 0
-        ),
-        populationSettings = PatientLevelPrediction::createStudyPopulationSettings(
-          riskWindowStart = plpTimeAtRisks$riskWindowStart[j],
-          startAnchor = plpTimeAtRisks$startAnchor[j],
-          riskWindowEnd = plpTimeAtRisks$riskWindowEnd[j],
-          endAnchor = plpTimeAtRisks$endAnchor[j],
-          removeSubjectsWithPriorOutcome = TRUE,
-          priorOutcomeLookback = priorOutcomeLookback,
-          requireTimeAtRisk = FALSE,
-          binary = TRUE,
-          includeAllOutcomes = TRUE,
-          firstExposureOnly = FALSE,
-          washoutPeriod = 0,
-          minTimeAtRisk = plpTimeAtRisks$riskWindowEnd[j] - plpTimeAtRisks$riskWindowStart[j],
-          restrictTarToCohortEnd = FALSE
-        ),
-        covariateSettings = FeatureExtraction::createCovariateSettings(
-          useDemographicsGender = TRUE,
-          useDemographicsAgeGroup = TRUE,
-          useConditionGroupEraLongTerm = TRUE,
-          useDrugGroupEraLongTerm = TRUE,
-          useVisitConceptCountLongTerm = TRUE
-        ),
-        preprocessSettings = PatientLevelPrediction::createPreprocessSettings(),
-        modelSettings = PatientLevelPrediction::setLassoLogisticRegression()
-      )
-    }
-  }
-}
-plpModuleSpecifications <- plpModuleSettingsCreator$createModuleSpecifications(
-  modelDesignList = modelDesignList
+# Create module specifications with the new parameter structure
+selfControlledModuleSpecifications <- sccsModuleSettingsCreator$createModuleSpecifications(
+  sccsAnalysesSpecifications = sccsAnalysesSpecifications
 )
+
+
+# PatientLevelPredictionModule -------------------------------------------------
+# plpModuleSettingsCreator <- PatientLevelPredictionModule$new()
+# modelDesignList <- list()
+# uniqueTargetIds <- unique(unlist(lapply(tcis, function(x) { c(x$targetId ) })))
+# dfUniqueTis <- dfUniqueTcis[dfUniqueTcis$cohortId %in% uniqueTargetIds, ]
+# for (i in 1:nrow(dfUniqueTis)) {
+#   tci <- dfUniqueTis[i,]
+#   cohortId <- cohortDefinitionSet %>% 
+#     filter(subsetParent == tci$cohortId & subsetDefinitionId == tci$subsetDefinitionId) %>%
+#     pull(cohortId)
+#   for (j in seq_len(nrow(plpTimeAtRisks))) {
+#     for (k in seq_len(nrow(outcomes))) {
+#       if (useCleanWindowForPriorOutcomeLookback)
+#         priorOutcomeLookback <- outcomes$cleanWindow[k]
+#       else
+#         priorOutcomeLookback <- 99999
+#       modelDesignList[[length(modelDesignList) + 1]] <- PatientLevelPrediction::createModelDesign(
+#         targetId = cohortId,
+#         outcomeId = outcomes$cohortId[k],
+#         restrictPlpDataSettings = PatientLevelPrediction::createRestrictPlpDataSettings(
+#           sampleSize = plpMaxSampleSize,
+#           studyStartDate = studyStartDate,
+#           studyEndDate = studyEndDate,
+#           firstExposureOnly = FALSE,
+#           washoutPeriod = 0
+#         ),
+#         populationSettings = PatientLevelPrediction::createStudyPopulationSettings(
+#           riskWindowStart = plpTimeAtRisks$riskWindowStart[j],
+#           startAnchor = plpTimeAtRisks$startAnchor[j],
+#           riskWindowEnd = plpTimeAtRisks$riskWindowEnd[j],
+#           endAnchor = plpTimeAtRisks$endAnchor[j],
+#           removeSubjectsWithPriorOutcome = TRUE,
+#           priorOutcomeLookback = priorOutcomeLookback,
+#           requireTimeAtRisk = FALSE,
+#           binary = TRUE,
+#           includeAllOutcomes = TRUE,
+#           firstExposureOnly = FALSE,
+#           washoutPeriod = 0,
+#           minTimeAtRisk = plpTimeAtRisks$riskWindowEnd[j] - plpTimeAtRisks$riskWindowStart[j],
+#           restrictTarToCohortEnd = FALSE
+#         ),
+#         covariateSettings = FeatureExtraction::createCovariateSettings(
+#           useDemographicsGender = TRUE,
+#           useDemographicsAgeGroup = TRUE,
+#           useConditionGroupEraLongTerm = TRUE,
+#           useDrugGroupEraLongTerm = TRUE,
+#           useVisitConceptCountLongTerm = TRUE
+#         ),
+#         preprocessSettings = PatientLevelPrediction::createPreprocessSettings(),
+#         modelSettings = PatientLevelPrediction::setLassoLogisticRegression()
+#       )
+#     }
+#   }
+# }
+# plpModuleSpecifications <- plpModuleSettingsCreator$createModuleSpecifications(
+#   modelDesignList = modelDesignList
+# )
 
 
 # Create the analysis specifications ------------------------------------------
-analysisSpecifications <- Strategus::createEmptyAnalysisSpecificiations() |>
+analysisSpecifications <- Strategus::createEmptyAnalysisSpecifications() |>
   Strategus::addSharedResources(cohortDefinitionShared) |> 
   Strategus::addSharedResources(negativeControlsShared) |>
   Strategus::addModuleSpecifications(cohortGeneratorModuleSpecifications) |>
-  Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications) |>
+  #Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications)# |>
   Strategus::addModuleSpecifications(characterizationModuleSpecifications) |>
   Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) |>
-  Strategus::addModuleSpecifications(cohortMethodModuleSpecifications) |>
-  Strategus::addModuleSpecifications(selfControlledModuleSpecifications) |>
-  Strategus::addModuleSpecifications(plpModuleSpecifications)
+  Strategus::addModuleSpecifications(cohortMethodModuleSpecifications)
+  #Strategus::addModuleSpecifications(selfControlledModuleSpecifications)
+  #Strategus::addModuleSpecifications(plpModuleSpecifications)
 
 ParallelLogger::saveSettingsToJson(
   analysisSpecifications, 
-  file.path("inst", "sampleStudy", "sampleStudyAnalysisSpecification.json")
+  file.path("inst", "fullStudyAnalysisSpecification.json")
 )
+
+# There is something happening with the SCCS Specifications creation that causes this error in the above JSON export step:
+# Error in unclass(x) : cannot unclass an environment
+
+
