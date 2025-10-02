@@ -1,0 +1,88 @@
+cohort_id,cohort_name,outcome_concept_id
+101,Abnormal posture,439935
+102,Abrasion and/or friction burn of multiple sites,443585
+103,Abrasion and/or friction burn of trunk without infection,199192
+104,Absence of breast,4088290
+105,Absent kidney,4092879
+106,Acquired hallux valgus,75911
+107,Acquired keratoderma,137951
+108,Anal and rectal polyp,73241
+109,Anomaly of jaw size,45757682
+110,Benign paroxysmal positional vertigo,81878
+111,Bizarre personal appearance,4216219
+112,Burn of forearm,133655
+113,Cachexia,134765
+114,Calcaneal spur,73560
+115,Cannabis abuse,434327
+116,Chondromalacia of patella,81378
+117,Cocaine abuse,432303
+118,Colostomy present,4201390
+119,Complication of gastrostomy,434675
+120,Contact dermatitis,134438
+121,Contusion of knee,78619
+122,Derangement of knee,76786
+123,Developmental delay,436077
+124,Deviated nasal septum,377910
+125,Difficulty sleeping,4115402
+126,Disproportion of reconstructed breast,45757370
+127,Effects of hunger,433111
+128,Endometriosis (clinical),433527
+129,Epidermoid cyst,4170770
+130,Exhaustion due to excessive exertion,437448
+131,Feces contents abnormal,4092896
+132,Foreign body in ear,374801
+133,Foreign body in orifice,259995
+134,Foreskin deficient,4096540
+135,Galactosemia,439788
+136,Ganglion cyst,40481632
+137,Genetic disorder carrier,4168318
+138,Hammer toe,433577
+139,Hereditary thrombophilia,4231770
+140,High risk sexual behavior,4012570
+141,Homocystinuria,4012934
+142,Impacted cerumen,374375
+143,Impingement syndrome of shoulder region,4344500
+144,Inadequate sleep hygiene,40481897
+145,Ingrowing nail,139099
+146,Injury of knee,444132
+147,Jellyfish poisoning,4265896
+148,Kwashiorkor,432593
+149,Late effect of contusion,434203
+150,Late effect of motor vehicle accident,438329
+151,Lipid storage disease,4027782
+152,Lymphangioma,433997
+153,Malingering,4051630
+154,Marfan's syndrome,258540
+155,"Mechanical complication of internal orthopedic device, implant AND/OR graft",432798
+156,Melena,4103703
+157,Minimal cognitive impairment,439795
+158,Nicotine dependence,4209423
+159,Noise effects on inner ear,377572
+160,Nonspecific tuberculin test reaction,40480893
+161,Non-toxic multinodular goiter,136368
+162,Opioid abuse,438130
+163,Opioid intoxication,4299094
+164,Passing flatus,4091513
+165,Physiological development failure,437092
+166,Poisoning by tranquilizer,433951
+167,Postviral fatigue syndrome,4202045
+168,Psychalgia,439790
+169,Ptotic breast,81634
+170,Regular astigmatism,380706
+171,Senile hyperkeratosis,141932
+172,Social exclusion,4019836
+173,Somatic dysfunction of lumbar region,36713918
+174,"Splinter of face, without major open wound",443172
+175,Sprain of ankle,81151
+176,Strain of rotator cuff capsule,72748
+177,Symbolic dysfunction,432436
+178,Tear film insufficiency,378427
+179,Tobacco dependence syndrome,437264
+180,Tooth loss,433244
+181,Toxic effect of lead compound,436876
+182,Toxic effect of tobacco and nicotine,440612
+183,Tracheostomy present,4201387
+184,Unsatisfactory tooth restoration,45757285
+185,Verruca vulgaris,140641
+186,Wrist joint pain,4115367
+187,Wristdrop,440193

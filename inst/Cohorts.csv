@@ -1,0 +1,18 @@
+atlas_id,cohort_id,cohort_name,logic_description,generate_stats
+1791985,1791985,pneumocystis pneumonia (Total),NA,TRUE
+1792492,1792492,pneumocystis pneumonia (Case1),NA,TRUE
+1792493,1792493,pneumocystis pneumonia (Case2),NA,TRUE
+1792494,1792494,pneumocystis pneumonia (Case3),NA,TRUE
+1791944,1791944,varicella zoster (Sensitive),NA,TRUE
+1791945,1791945,varicella zoster (Specific),NA,TRUE
+1792481,1792481,varicella zoster (New),NA,TRUE
+1792205,1792205,PML,Progressive Multifocal Leukoencephalopathy (PML),TRUE
+1793889,1793889,Hospitalized Infection,NA,TRUE
+1794247,1794247,rituximab exposures,NA,TRUE
+1794245,1794245,JAKi exposures,NA,TRUE
+1794244,1794244,MMF exposures,NA,TRUE
+1794243,1794243,IVIG exposures,NA,TRUE
+1794239,1794239,Uveitis,NA,TRUE
+1794240,1794240,SLE,NA,TRUE
+1794241,1794241,SSc,NA,TRUE
+1794242,1794242,DM,NA,TRUE

@@ -1,0 +1,55 @@
+conceptId,cdmSourceAbbreviation,covariateShortName,mean1,mean2,stdDiff
+19117912,AMBULATORY EMR, immunoglobulin G,0.0114120585786354,1,-13.1625688558169
+2314229,PharMetrics," Chemotherapy administration, intravenous infusion technique; up to 1 hour, single or initial substance/drug",0.929401524798117,0.0291355646520587,4.15480538788744
+2314231,PharMetrics," Chemotherapy administration, intravenous infusion technique; each additional hour (List separately in addition to code for primary procedure)",0.892796698957141,0.0205473954570993,3.62438179756248
+2314229,OPTUM Extended DOD," Chemotherapy administration, intravenous infusion technique; up to 1 hour, single or initial substance/drug",0.866175909437802,0.0284378652123101,3.12701651674978
+2314231,OPTUM Extended DOD," Chemotherapy administration, intravenous infusion technique; each additional hour (List separately in addition to code for primary procedure)",0.83335983210379,0.0213059243055347,2.87353076647348
+2314229,IBM CCAE," Chemotherapy administration, intravenous infusion technique; up to 1 hour, single or initial substance/drug",0.821107842378261,0.0265548755829941,2.70359766645741
+2314229,IBM MDCD," Chemotherapy administration, intravenous infusion technique; up to 1 hour, single or initial substance/drug",0.809935924107514,0.0360235168359166,2.51976772393187
+2314231,IBM CCAE," Chemotherapy administration, intravenous infusion technique; each additional hour (List separately in addition to code for primary procedure)",0.780908879770845,0.0204081632653061,2.46039526407631
+2314229,IBM MDCR," Chemotherapy administration, intravenous infusion technique; up to 1 hour, single or initial substance/drug",0.788002161772654,0.0299766848007105,2.42060342777995
+2314231,IBM MDCD," Chemotherapy administration, intravenous infusion technique; each additional hour (List separately in addition to code for primary procedure)",0.768577848048598,0.0252271512560128,2.33637576962749
+2314231,IBM MDCR," Chemotherapy administration, intravenous infusion technique; each additional hour (List separately in addition to code for primary procedure)",0.753413799315439,0.0223159764627512,2.269224273861
+2314206,PharMetrics," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); initial, up to 1 hour",0.0247255846939927,0.599432806271236,-1.58114889884705
+2314207,PharMetrics," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); each additional hour (List separately in addition to code for primary procedure)",0.0288518882674361,0.585921823581347,-1.51436727335551
+257007,JMDC, Allergic rhinitis,0.0187842421080094,0.542569496619083,-1.4345725916375
+2314206,IBM MDCR," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); initial, up to 1 hour",0.0147360835885426,0.518485622293771,-1.38605984534713
+2314207,IBM MDCR," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); each additional hour (List separately in addition to code for primary procedure)",0.0142316699693749,0.498723215277007,-1.33344964265688
+2314206,OPTUM Extended DOD," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); initial, up to 1 hour",0.0238488934113457,0.478858889454916,-1.2319337274349
+38003196,IBM MDCD, Radiology - Therapeutic - Chemotherapy - IV,0.481900640758925,0.0311063602351683,1.20520485668382
+2314207,OPTUM Extended DOD," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); each additional hour (List separately in addition to code for primary procedure)",0.0262337827524803,0.466992298702466,-1.18981460418392
+2314206,IBM CCAE," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); initial, up to 1 hour",0.0296508477200588,0.421939449491818,-1.06241809252731
+2314207,IBM CCAE," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); each additional hour (List separately in addition to code for primary procedure)",0.0295153673453588,0.403930660771574,-1.02013530559373
+38003196,OPTUM Extended DOD, Radiology - Therapeutic - Chemotherapy - IV,0.379610786059527,0.0180695813730485,1.01601119390453
+975125,JMDC, hydrocortisone,0.370988781633185,0.0202253944402705,0.985873164197813
+38003196,IBM CCAE, Radiology - Therapeutic - Chemotherapy - IV,0.344352403808934,0.0169573774027445,0.940332979589907
+2314233,IBM MDCR," Chemotherapy administration, intravenous infusion technique; each additional sequential infusion (different substance/drug), up to 1 hour (List separately in addition to code for primary procedure)",0.299513601152945,0,0.924748038260164
+2314233,OPTUM Extended DOD," Chemotherapy administration, intravenous infusion technique; each additional sequential infusion (different substance/drug), up to 1 hour (List separately in addition to code for primary procedure)",0.287951539048588,0,0.899331745507899
+1518254,OPTUM Extended DOD, dexamethasone,0.337589035868736,0.0334122441640946,0.850335271691618
+1310317,IBM MDCR, cyclophosphamide,0.253107548189515,0,0.82326283653654
+2314227,OPTUM Extended DOD," Chemotherapy administration; intravenous, push technique, each additional substance/drug (List separately in addition to code for primary procedure)",0.252305393029763,0,0.821516216282008
+1125315,JMDC, acetaminophen,0.341768849465171,0.0430052592036063,0.819039718407621
+2314233,IBM CCAE," Chemotherapy administration, intravenous infusion technique; each additional sequential infusion (different substance/drug), up to 1 hour (List separately in addition to code for primary procedure)",0.246690407989471,0,0.809290385149866
+1310317,OPTUM Extended DOD, cyclophosphamide,0.244832739760875,0,0.805245242273572
+2314233,PharMetrics," Chemotherapy administration, intravenous infusion technique; each additional sequential infusion (different substance/drug), up to 1 hour (List separately in addition to code for primary procedure)",0.242500926806467,0,0.800167018057988
+2314227,PharMetrics," Chemotherapy administration; intravenous, push technique, each additional substance/drug (List separately in addition to code for primary procedure)",0.235296013926275,0,0.78446867426305
+4203722,IBM CCAE, Patient encounter procedure,0.327591546024619,0.0460464238535573,0.774631914579425
+1308290,OPTUM Extended DOD, vincristine,0.22902887306029,0,0.770798851611699
+1308290,IBM MDCR, vincristine,0.22875157629256,0,0.77019359172726
+38003196,IBM MDCR, Radiology - Therapeutic - Chemotherapy - IV,0.258115654836966,0.0134339957810592,0.764731968068008
+432571,IBM MDCR, Malignant lymphoma,0.282759863087732,0.0294215610081048,0.744850687590365
+1310317,IBM CCAE, cyclophosphamide,0.215723465200898,0,0.74170136980345
+2314227,IBM MDCR," Chemotherapy administration; intravenous, push technique, each additional substance/drug (List separately in addition to code for primary procedure)",0.213871374527112,0,0.73764010811404
+4203722,IBM MDCR, Patient encounter procedure,0.298612862547289,0.0408571111357833,0.731047673365645
+1518254,IBM CCAE, dexamethasone,0.276708988155144,0.0300056614455558,0.728683101471242
+920458,JMDC, betamethasone,0.0255674406470128,0.263140495867769,-0.718252730528109
+911354,IBM MDCR, palonosetron,0.200324265898036,0,0.707823241942327
+1518254,PharMetrics, dexamethasone,0.255089376380136,0.0306338122374722,0.677199052882735
+1518254,IBM MDCD, dexamethasone,0.212449030540068,0.0290753607696419,0.586447657482197
+1314273,JMDC, rituximab,1,0,
+1314273,IBM MDCD, rituximab,1,0,
+1314273,IBM MDCR, rituximab,1,0,
+1314273,IBM CCAE, rituximab,1,0,
+1314273,PharMetrics, rituximab,1,0,
+1314273,AMBULATORY EMR, rituximab,1,0,
+1314273,OPTUM Extended DOD, rituximab,1,0,

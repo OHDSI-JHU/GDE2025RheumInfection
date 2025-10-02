@@ -1,0 +1,65 @@
+conceptId,cdmSourceAbbreviation,covariateShortName,mean1,mean2,stdDiff
+19003999,AMBULATORY EMR, mycophenolate mofetil,0.0107261922017684,1,-13.5815853072997
+19117912,JMDC, immunoglobulin G,1,0.0308896210873147,7.92127935794886
+2314206,PREMIER," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); initial, up to 1 hour",0.682291666666667,0,2.07245795306277
+2314207,PREMIER," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); each additional hour (List separately in addition to code for primary procedure)",0.664434523809524,0,1.98999715874069
+19069019,JMDC, histamine,0.622960180315552,0,1.8178227403637
+2314206,PharMetrics," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); initial, up to 1 hour",0.599432806271236,0,1.73000581431184
+2314207,PharMetrics," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); each additional hour (List separately in addition to code for primary procedure)",0.585921823581347,0,1.68226211247845
+2314207,IBM MDCD," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); each additional hour (List separately in addition to code for primary procedure)",0.54484233030465,0,1.54728204555958
+2314206,IBM MDCD," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); initial, up to 1 hour",0.562052378407269,0.0128865979381443,1.52643239238828
+2314206,IBM MDCR," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); initial, up to 1 hour",0.518485622293771,0,1.46750208528031
+2314207,IBM MDCR," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); each additional hour (List separately in addition to code for primary procedure)",0.498723215277007,0,1.41060686892165
+2314206,OPTUM Extended DOD," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); initial, up to 1 hour",0.478858889454916,0,1.35562980208935
+4319466,PREMIER," Complete blood count with white cell differential, automated",0.552083333333333,0.0411639460610362,1.34930620124097
+2314207,OPTUM Extended DOD," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); each additional hour (List separately in addition to code for primary procedure)",0.466992298702466,0,1.32374128856217
+38003148,IBM MDCD, IV Therapy - General classification,0.496846606092998,0.0228654507005022,1.28447659368164
+4206920,JMDC, Nebulizer therapy,0.451810668670173,0,1.2838903928566
+2314206,IBM CCAE," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); initial, up to 1 hour",0.421939449491818,0,1.20824052394274
+2001083,JMDC, Other operations on nose,0.419984973703982,0,1.20340621923663
+2314207,IBM CCAE," Intravenous infusion, for therapy, prophylaxis, or diagnosis (specify substance or drug); each additional hour (List separately in addition to code for primary procedure)",0.403930660771574,0,1.16417968432879
+2314216,PREMIER," Therapeutic, prophylactic, or diagnostic injection (specify substance or drug); each additional sequential intravenous push of a new substance/drug (List separately in addition to code for primary procedure)",0.377232142857143,0.0163236337828247,1.01879789817594
+37398192,AMBULATORY EMR, IgM,0.339121611827801,0,1.01305250955335
+38003148,IBM MDCR, IV Therapy - General classification,0.338181414455424,0,1.01092837456149
+38003354,IBM MDCR, Drugs Identification - Drugs Requiring Detailed Coding,0.389141778616632,0.0269831608845608,0.996873880580998
+38003354,OPTUM Extended DOD, Drugs Identification - Drugs Requiring Detailed Coding,0.405321986155644,0.0425158590902956,0.966633884253783
+38003148,OPTUM Extended DOD, IV Therapy - General classification,0.335051391927122,0.0114950285688577,0.945612849198661
+38003148,IBM CCAE, IV Therapy - General classification,0.292723694497614,0,0.909807226841676
+2617471,PREMIER," Electrocardiogram, routine ecg with 12 leads; tracing only, without interpretation and report, performed as a screening for the initial preventive physical examination",0.0126488095238095,0.320085166784954,-0.906344995293165
+38003354,IBM CCAE, Drugs Identification - Drugs Requiring Detailed Coding,0.344054134203219,0.024382515565836,0.90512982548512
+1129625,IBM MDCR, diphenhydramine,0.257355390252026,0,0.83251317591373
+2212344,PREMIER," Gammaglobulin (immunoglobulin); IgA, IgD, IgG, IgM, each",0.28125,0.0149041873669269,0.808910914913574
+1126658,PREMIER, hydromorphone,0.0111607142857143,0.267565649396735,-0.796976046856529
+1154029,PREMIER, fentanyl,0.0230654761904762,0.286018452803407,-0.780951183339853
+4163378,AMBULATORY EMR, Immunoglobulin G measurement,0.230004348456298,0,0.772927723604344
+1129625,OPTUM Extended DOD, diphenhydramine,0.22909112702646,0,0.770934728793571
+1129625,PharMetrics, diphenhydramine,0.223586697701795,0,0.758912130835598
+956874,PREMIER, furosemide,0.0200892857142857,0.26472675656494,-0.747298753436179
+1771162,PREMIER, cefazolin,0.0119047619047619,0.241305890702626,-0.734972426459373
+920458,JMDC, betamethasone,0.263140495867769,0.0242998352553542,0.724080583750668
+1129625,IBM CCAE, diphenhydramine,0.206373170139919,0,0.721163013559226
+440072,IBM MDCR, Hypogammaglobulinemia,0.204951704230043,0,0.718032346802233
+1551099,IBM MDCD, prednisone,0.0110101549973276,0.227531060005287,-0.708763411985348
+30437,JMDC, Gastro-esophageal reflux disease with esophagitis,0.0181818181818182,0.239703459637562,-0.700343211595822
+2211744,PREMIER," Ultrasound, transplanted kidney, real time and duplex Doppler with image documentation",0.015625,0.227821149751597,-0.68611283322102
+2314216,PharMetrics," Therapeutic, prophylactic, or diagnostic injection (specify substance or drug); each additional sequential intravenous push of a new substance/drug (List separately in addition to code for primary procedure)",0.214998528506836,0.010334334089006,0.684113710354563
+753626,PREMIER, propofol,0.0238095238095238,0.244144783534422,-0.683591032314902
+38003138,IBM CCAE, Pharmacy - General Classification,0.24268729949047,0.0234953025238042,0.681764396864826
+1000560,PREMIER, ondansetron,0.0461309523809524,0.281050390347764,-0.669745724675966
+320128,JMDC, Essential hypertension,0.0178211870773854,0.225288303130148,-0.669532596201647
+2212348,PREMIER," Gases, blood, any combination of pH, pCO2, pO2, CO2, HCO3 (including calculated O2 saturation)",0.0453869047619048,0.278211497515969,-0.666388097471174
+4138262,JMDC, Subcutaneous injection,0.207272727272727,0.0127677100494234,0.653977698317434
+708298,PREMIER, midazolam,0.0230654761904762,0.227111426543648,-0.648393711982613
+989878,PREMIER, lidocaine,0.015625,0.209368346344925,-0.644177549426125
+19009405,PREMIER, vitamin D,0.0186011904761905,0.211497515968772,-0.634202355124611
+953076,PREMIER, famotidine,0.0223214285714286,0.217885024840312,-0.630793989279055
+38003138,OPTUM Extended DOD, Pharmacy - General Classification,0.242695753798208,0.0365321455886984,0.623035520222817
+4133316,PREMIER, Microscopic urinalysis,0.0275297619047619,0.224272533711852,-0.620997819625666
+1506270,JMDC, methylprednisolone,0.0207062359128475,0.205518945634267,-0.610041956330454
+19117912,IBM MDCD, immunoglobulin G,1,0,
+19117912,IBM MDCR, immunoglobulin G,1,0,
+19117912,IBM CCAE, immunoglobulin G,1,0,
+19117912,PharMetrics, immunoglobulin G,1,0,
+19117912,AMBULATORY EMR, immunoglobulin G,1,0,
+19117912,OPTUM Extended DOD, immunoglobulin G,1,0,
+19117912,PREMIER, immunoglobulin G,1,0,

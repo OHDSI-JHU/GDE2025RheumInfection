@@ -1,0 +1,10 @@
+outcome_cohort_id,outcome_cohort_name,clean_window
+1791985,pneumocystis pneumonia (Total),9999
+1792492,pneumocystis pneumonia (Case1),9999
+1792493,pneumocystis pneumonia (Case2),9999
+1792494,pneumocystis pneumonia (Case3),9999
+1791944,varicella zoster (Sensitive),9999
+1791945,varicella zoster (Specific),9999
+1792481,varicella zoster (New),9999
+1792205,PML,9999
+1793889,Hospitalized Infection,9999

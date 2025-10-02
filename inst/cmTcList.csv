@@ -1,0 +1,7 @@
+target_cohort_id,target_cohort_name,target_concept_id,comparator_cohort_id,comparator_cohort_name,comparator_concept_id
+1794247,rituximab exposures,,1794245,JAKi exposures,
+1794247,rituximab exposures,,1794244,MMF exposures,
+1794247,rituximab exposures,,1794243,IVIG exposures,
+1794245,JAKi exposures,,1794244,MMF exposures,
+1794245,JAKi exposures,,1794243,IVIG exposures,
+1794244,MMF exposures,,1794243,IVIG exposures,
