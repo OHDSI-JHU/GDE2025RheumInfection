@@ -771,10 +771,10 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecifications() |>
   Strategus::addSharedResources(cohortDefinitionShared) |> 
   Strategus::addSharedResources(negativeControlsShared) |>
   Strategus::addModuleSpecifications(cohortGeneratorModuleSpecifications) |>
-  #Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications)# |>
+  Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications) |>
   Strategus::addModuleSpecifications(characterizationModuleSpecifications) |>
-  Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) |>
-  Strategus::addModuleSpecifications(cohortMethodModuleSpecifications)
+  Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications)# |>
+  #Strategus::addModuleSpecifications(cohortMethodModuleSpecifications)
   #Strategus::addModuleSpecifications(selfControlledModuleSpecifications)
   #Strategus::addModuleSpecifications(plpModuleSpecifications)
 
