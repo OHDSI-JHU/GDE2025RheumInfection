@@ -189,8 +189,18 @@ for (i in 1:nrow(dfUniqueSubsetCriteria)) {
       negate = FALSE,
       cohortCombinationOperator = "all",
       windows = list(
-        CohortGenerator::createSubsetCohortWindow(-99999, 0, "cohortStart"),
-        CohortGenerator::createSubsetCohortWindow(0, 99999, "cohortStart")
+        CohortGenerator::createSubsetCohortWindow(
+          startDay = -99999, 
+          endDay = 0, 
+          targetAnchor = "cohortStart",
+          subsetAnchor = "cohortStart"
+        ),
+        CohortGenerator::createSubsetCohortWindow(
+          startDay = 0, 
+          endDay = 99999, 
+          targetAnchor = "cohortStart",
+          subsetAnchor = "cohortEnd"
+        )
       )
     )
   }
