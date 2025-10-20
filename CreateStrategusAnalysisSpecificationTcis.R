@@ -206,8 +206,7 @@ for (i in 1:nrow(dfUniqueSubsetCriteria)) {
   }
   subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubset(
     priorTime = 365,
-    followUpTime = 1,
-    limitTo = "firstEver"
+    followUpTime = 1
   )
   if (uniqueSubsetCriteria$genderConceptIds != "" ||
       uniqueSubsetCriteria$minAge != "" ||
@@ -264,7 +263,6 @@ cgModuleSettingsCreator <- CohortGeneratorModule$new()
 cohortDefinitionShared <- cgModuleSettingsCreator$createCohortSharedResourceSpecifications(cohortDefinitionSet)
 negativeControlsShared <- cgModuleSettingsCreator$createNegativeControlOutcomeCohortSharedResourceSpecifications(
   negativeControlOutcomeCohortSet = negativeControlOutcomeCohortSet,
-  occurrenceType = "first",
   detectOnDescendants = TRUE
 )
 cohortGeneratorModuleSpecifications <- cgModuleSettingsCreator$createModuleSpecifications(
