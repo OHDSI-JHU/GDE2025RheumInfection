@@ -263,6 +263,7 @@ cgModuleSettingsCreator <- CohortGeneratorModule$new()
 cohortDefinitionShared <- cgModuleSettingsCreator$createCohortSharedResourceSpecifications(cohortDefinitionSet)
 negativeControlsShared <- cgModuleSettingsCreator$createNegativeControlOutcomeCohortSharedResourceSpecifications(
   negativeControlOutcomeCohortSet = negativeControlOutcomeCohortSet,
+  occurrenceType = 'all',
   detectOnDescendants = TRUE
 )
 cohortGeneratorModuleSpecifications <- cgModuleSettingsCreator$createModuleSpecifications(
