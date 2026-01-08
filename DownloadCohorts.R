@@ -42,18 +42,9 @@ cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
     1794240, # SLE
     1794241, # SSc
     1794242,  # DM
-    1794548, 1794547,
-    1794546, 1794545,
-    1794544, 1794543,
-    1794542, 1794541,
-    1794540, 1794539,
-    1794538, 1794537,
-    1794536, 1794535,
-    1794534, 1794533,
-    1794532, 1794531,
-    1794530, 1794529,
-    1794395, 1793813,
-    1794528, 1794527
+    1794530, 1794529, # MMF+IVIG
+    1794395, 1793813, # MMF+RTX
+    1794528, 1794527, # MMF+JAKi
   ),
   generateStats = TRUE
 )
@@ -77,30 +68,16 @@ name_map <- list(
   '1794240' = "SLE",
   '1794241' = "SSc",
   '1794242' = "DM",
-  '1794548' = "IVIG+JAKi (Combination) - BM-MX - drop JAKi",
-  '1794547' = "IVIG+JAKi (Combination) - BM-MX - drop IVIG",
-  '1794546' = "IVIG+MMF (Combination) - BM-MX - drop MMF",
-  '1794545' = "IVIG+MMF (Combination) - BM-MX - drop IVIG",
-  '1794544' = "IVIG+RTX (Combination) - BM-MX - drop RTX",
-  '1794543' = "IVIG+RTX (Combination) - BM-MX - drop IVIG",
-  '1794542' = "JAKi+IVIG (Combination) - BM-MX - drop 2nd",
-  '1794541' = "JAKi+IVIG (Combination) - BM-MX - drop JAKi",
-  '1794540' = "JAKi+MMF (Combination) - BM-MX - drop MMF",
-  '1794539' = "JAKi+MMF (Combination) - BM-MX - drop JAKi",
-  '1794538' = "JAKi+RTX (Combination) - BM-MX - drop RTX",
-  '1794537' = "JAKi+RTX (Combination) - BM-MX - drop JAKi",
-  '1794536' = "RTX+IVIG (Combination) - BM-MX - drop IVIG",
-  '1794535' = "RTX+IVIG (Combination) - BM-MX - drop RTX",
-  '1794534' = "RTX+JAKi (Combination) - BM-MX - drop JAKi",
-  '1794533' = "RTX+JAKi (Combination) - BM-MX - drop RTX",
-  '1794532' = "RTX+MMF (Combination) - BM-MX - drop MMF",
-  '1794531' = "RTX+MMF (Combination) - BM-MX - drop RTX",
+  '1794531' =	"MMF+RTX (Combination) - BM-MX - drop RTX",
+  '1794532' =	"MMF+RTX (Combination) - BM-MX - drop MMF",
   '1794530' = "MMF+IVIG (Combination) - BM-MX - drop IVIG",
   '1794529' = "MMF+IVIG (Combination) - BM-MX - drop MMF",
-  '1794395' = "MMF+RTX (Combination) - BM-MX - drop RTX",
-  '1793813' = "MMF+RTX (Combination) - BM-MX - drop MMF",
-  '1794528' = "MMF+JAKi (Combination) - BM-MX - drop MMF",
-  '1794527' = "MMF+JAKi (Combination) - BM-MX - drop JAKi"
+  '1794395' = "MMF+MTX (Combination) - BM-MX - drop MTX",
+  '1793813' = "MMF+MTX (Combination) - BM-MX - drop MMF",
+  '1795035'	= "MMF+AZA (Combination) - BM-MX - drop AZA",
+  '1795036' =	"MMF+AZA (Combination) - BM-MX - drop MMF",
+  '1794527' = "MMF+JAKi (Combination) - BM-MX - drop JAKi",
+  '1794528' = "MMF+JAKi (Combination) - BM-MX - drop MMF"
 )
 
 cohortDefinitionSet$atlasId <- cohortDefinitionSet$cohortId  # keep original ATLAS IDs
