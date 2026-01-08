@@ -39,9 +39,8 @@ excludedCovariates_JAKi_RTX = read.csv("inst/excludedCovariates_JAKi_RTX.csv")
 excludedCovariates_MMF_IVIG = read.csv("inst/excludedCovariates_MMF_IVIG.csv")
 excludedCovariates_RTX_IVIG = read.csv("inst/excludedCovariates_RTX_IVIG.csv")
 excludedCovariates_RTX_MMF = read.csv("inst/excludedCovariates_RTX_MMF.csv")
-# Add excluded covariates for combo comparisons (MMF+AZA, MMF+IVIG, MMF+RTX)
-# You may need to create these files or combine existing ones
-excludedCovariates_MMF_AZA = read.csv("inst/excludedCovariates_MMF_AZA.csv")
+# Add excluded covariates for combo comparisons 
+excludedCovariates_Union = read.csv("inst/excludedCovariates_Union.csv")
 
 
 # =============================================================================
@@ -88,14 +87,26 @@ tcis <- list(
 # These cohorts are created by intersecting pairs of single-drop cohorts.
 # They need to be added to cohortDefinitionSet as "synthetic" entries.
 
+pairs <- list(
+  list(sourceIds = c(1794531, 1794532), newId = 1001),
+  list(sourceIds = c(1794530, 1794529), newId = 1002),
+  list(sourceIds = c(1794395, 1793813), newId = 1003),
+  list(sourceIds = c(1795035, 1795036), newId = 1004),
+  list(sourceIds = c(1794527, 1794528), newId = 1005)
+)
+
+
+
 comboCohorts <- data.frame(
-  cohortId = c(1001, 1002, 1003),
+  cohortId = c(1001, 1002, 1003, 1004, 1005),
   cohortName = c(
-    "MMF+AZA (Combination)",
+    "MMF+RTX (Combination)",
     "MMF+IVIG (Combination)",
-    "MMF+RTX (Combination)"
+    "MMF+MTX (Combination)",
+    "MMF+AZA (Combination)",
+    "MMF+JAKi (Combination)"
   ),
-  # These are synthetic cohorts - no JSON/SQL definition
+  # These are CohortAlgebra combined cohorts - no JSON/SQL definition
   json = NA_character_,
   sql = NA_character_,
   stringsAsFactors = FALSE
@@ -110,7 +121,7 @@ comboCohorts <- data.frame(
 comboTcis <- list()
 comboCohortIds <- comboCohorts$cohortId  # 1001, 1002, 1003
 
-# 1001 vs 1002: MMF+AZA vs MMF+IVIG
+# 1001 vs 1002: MMF+RTX vs MMF+IVIG
 comboTcis[[length(comboTcis) + 1]] <- list(
   targetId = 1001, 
   comparatorId = 1002, 
@@ -118,29 +129,97 @@ comboTcis[[length(comboTcis) + 1]] <- list(
   genderConceptIds = c(8507, 8532), 
   minAge = NULL, 
   maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_MMF_IVIG$conceptId
+  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
 )
 
-# 1001 vs 1003: MMF+AZA vs MMF+RTX
 comboTcis[[length(comboTcis) + 1]] <- list(
   targetId = 1001, 
   comparatorId = 1003, 
-  indicationId = NULL,
+  indicationId = NULL,  # No indication subsetting for combos
   genderConceptIds = c(8507, 8532), 
   minAge = NULL, 
   maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_RTX_MMF$conceptId
+  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
 )
 
-# 1002 vs 1003: MMF+IVIG vs MMF+RTX
+comboTcis[[length(comboTcis) + 1]] <- list(
+  targetId = 1001, 
+  comparatorId = 1004, 
+  indicationId = NULL,  # No indication subsetting for combos
+  genderConceptIds = c(8507, 8532), 
+  minAge = NULL, 
+  maxAge = NULL, 
+  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
+)
+
+comboTcis[[length(comboTcis) + 1]] <- list(
+  targetId = 1001, 
+  comparatorId = 1005, 
+  indicationId = NULL,  # No indication subsetting for combos
+  genderConceptIds = c(8507, 8532), 
+  minAge = NULL, 
+  maxAge = NULL, 
+  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
+)
+
 comboTcis[[length(comboTcis) + 1]] <- list(
   targetId = 1002, 
   comparatorId = 1003, 
-  indicationId = NULL,
+  indicationId = NULL,  # No indication subsetting for combos
   genderConceptIds = c(8507, 8532), 
   minAge = NULL, 
   maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_RTX_IVIG$conceptId
+  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
+)
+
+comboTcis[[length(comboTcis) + 1]] <- list(
+  targetId = 1002, 
+  comparatorId = 1004, 
+  indicationId = NULL,  # No indication subsetting for combos
+  genderConceptIds = c(8507, 8532), 
+  minAge = NULL, 
+  maxAge = NULL, 
+  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
+)
+
+comboTcis[[length(comboTcis) + 1]] <- list(
+  targetId = 1002, 
+  comparatorId = 1005, 
+  indicationId = NULL,  # No indication subsetting for combos
+  genderConceptIds = c(8507, 8532), 
+  minAge = NULL, 
+  maxAge = NULL, 
+  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
+)
+
+comboTcis[[length(comboTcis) + 1]] <- list(
+  targetId = 1003, 
+  comparatorId = 1004, 
+  indicationId = NULL,  # No indication subsetting for combos
+  genderConceptIds = c(8507, 8532), 
+  minAge = NULL, 
+  maxAge = NULL, 
+  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
+)
+
+comboTcis[[length(comboTcis) + 1]] <- list(
+  targetId = 1003, 
+  comparatorId = 1005, 
+  indicationId = NULL,  # No indication subsetting for combos
+  genderConceptIds = c(8507, 8532), 
+  minAge = NULL, 
+  maxAge = NULL, 
+  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
+)
+
+comboTcis[[length(comboTcis) + 1]] <- list(
+  targetId = 1004, 
+  comparatorId = 1005, 
+  indicationId = NULL,  # No indication subsetting for combos
+  genderConceptIds = c(8507, 8532), 
+  minAge = NULL, 
+  maxAge = NULL, 
+  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
 )
 
 message(sprintf("Created %d combination TCI comparisons", length(comboTcis)))
@@ -156,7 +235,7 @@ outcomes <- tibble(
     1791945, # varicella zoster (Specific)
     1792481, # varicella zoster (New)
     1792205, # PML
-    1793889  # Hospitalized Infection - optimized slightly
+    1793889  # Hospitalized Infection - optimized
   ),
   cleanWindow = c(
     365, 365, 365, 365,
@@ -1031,4 +1110,5 @@ message(sprintf("CohortMethod analyses: %d", length(cmAnalysisList)))
 message(sprintf("SCCS analyses: %d", length(sccsAnalysisList)))
 message("")
 message("Analysis specifications saved to inst/fullStudyAnalysisSpecification.json")
+
 message("CohortAlgebra specifications saved to inst/cohortAlgebraSpecifications.json")
