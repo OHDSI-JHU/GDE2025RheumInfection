@@ -92,19 +92,39 @@ pairs <- list(
   list(sourceIds = c(1794530, 1794529), newId = 1002),
   list(sourceIds = c(1794395, 1793813), newId = 1003),
   list(sourceIds = c(1795035, 1795036), newId = 1004),
-  list(sourceIds = c(1794527, 1794528), newId = 1005)
+  list(sourceIds = c(1794527, 1794528), newId = 1005),
+  list(sourceIds = c(1795370, 1795371), newId = 1006), 
+  list(sourceIds = c(1795374, 1795375), newId = 1007),
+  list(sourceIds = c(1795378, 1795379), newId = 1008),
+  list(sourceIds = c(1795381, 1795382), newId = 1009),
+  list(sourceIds = c(1795385, 1795386), newId = 1010),
+  list(sourceIds = c(1795372, 1795373), newId = 1011),
+  list(sourceIds = c(1795375, 1795376), newId = 1012),
+  list(sourceIds = c(1795377, 1795380), newId = 1013),
+  list(sourceIds = c(1795383, 1795384), newId = 1014),
+  list(sourceIds = c(1795387, 1795388), newId = 1015)
 )
 
 
 
 comboCohorts <- data.frame(
-  cohortId = c(1001, 1002, 1003, 1004, 1005),
+  cohortId = c(1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015),
   cohortName = c(
     "MMF+RTX (Combination)",
     "MMF+IVIG (Combination)",
     "MMF+MTX (Combination)",
     "MMF+AZA (Combination)",
     "MMF+JAKi (Combination)"
+    "MTX+IVIG	(Combination)",
+    "MTX+MMF (Combination)",
+    "MTX+AZA (Combination)",
+    "MTX+RTX (Combination)",
+    "MTX+JAKi	(Combination)",
+    "AZA+IVIG	(Combination)",
+    "AZA+MMF (Combination)",
+    "AZA+MTX (Combination)",
+    "AZA+RTX (Combination)",
+    "AZA+JAKi (Combination)",
   ),
   # These are CohortAlgebra combined cohorts - no JSON/SQL definition
   json = NA_character_,
@@ -114,113 +134,31 @@ comboCohorts <- data.frame(
 
 # =============================================================================
 # Combination TCIs (combos vs combos only)
-# All pairwise comparisons among the 3 combination cohorts
+# All pairwise comparisons among the combination cohorts
 # NOTE: Combo cohorts don't need indication-based subsetting since they're 
 # already intersection cohorts. We only create 3 unique pairs.
 # =============================================================================
 comboTcis <- list()
 comboCohortIds <- comboCohorts$cohortId  # 1001, 1002, 1003
 
-# 1001 vs 1002: MMF+RTX vs MMF+IVIG
-comboTcis[[length(comboTcis) + 1]] <- list(
-  targetId = 1001, 
-  comparatorId = 1002, 
-  indicationId = NULL,  # No indication subsetting for combos
-  genderConceptIds = c(8507, 8532), 
-  minAge = NULL, 
-  maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
-)
+comboPairs <- as.data.frame(t(combn(1001:1015, 2)))
+names(comboPairs) <- c("targetId", "comparatorId")
+indications <- c(1794240, 1794239, 1794241, 1794242)
 
-comboTcis[[length(comboTcis) + 1]] <- list(
-  targetId = 1001, 
-  comparatorId = 1003, 
-  indicationId = NULL,  # No indication subsetting for combos
-  genderConceptIds = c(8507, 8532), 
-  minAge = NULL, 
-  maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
-)
+# Cross all pairs with all indications
+allCombos <- merge(comboPairs, data.frame(indicationId = indications))
 
-comboTcis[[length(comboTcis) + 1]] <- list(
-  targetId = 1001, 
-  comparatorId = 1004, 
-  indicationId = NULL,  # No indication subsetting for combos
-  genderConceptIds = c(8507, 8532), 
-  minAge = NULL, 
-  maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
-)
-
-comboTcis[[length(comboTcis) + 1]] <- list(
-  targetId = 1001, 
-  comparatorId = 1005, 
-  indicationId = NULL,  # No indication subsetting for combos
-  genderConceptIds = c(8507, 8532), 
-  minAge = NULL, 
-  maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
-)
-
-comboTcis[[length(comboTcis) + 1]] <- list(
-  targetId = 1002, 
-  comparatorId = 1003, 
-  indicationId = NULL,  # No indication subsetting for combos
-  genderConceptIds = c(8507, 8532), 
-  minAge = NULL, 
-  maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
-)
-
-comboTcis[[length(comboTcis) + 1]] <- list(
-  targetId = 1002, 
-  comparatorId = 1004, 
-  indicationId = NULL,  # No indication subsetting for combos
-  genderConceptIds = c(8507, 8532), 
-  minAge = NULL, 
-  maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
-)
-
-comboTcis[[length(comboTcis) + 1]] <- list(
-  targetId = 1002, 
-  comparatorId = 1005, 
-  indicationId = NULL,  # No indication subsetting for combos
-  genderConceptIds = c(8507, 8532), 
-  minAge = NULL, 
-  maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
-)
-
-comboTcis[[length(comboTcis) + 1]] <- list(
-  targetId = 1003, 
-  comparatorId = 1004, 
-  indicationId = NULL,  # No indication subsetting for combos
-  genderConceptIds = c(8507, 8532), 
-  minAge = NULL, 
-  maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
-)
-
-comboTcis[[length(comboTcis) + 1]] <- list(
-  targetId = 1003, 
-  comparatorId = 1005, 
-  indicationId = NULL,  # No indication subsetting for combos
-  genderConceptIds = c(8507, 8532), 
-  minAge = NULL, 
-  maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
-)
-
-comboTcis[[length(comboTcis) + 1]] <- list(
-  targetId = 1004, 
-  comparatorId = 1005, 
-  indicationId = NULL,  # No indication subsetting for combos
-  genderConceptIds = c(8507, 8532), 
-  minAge = NULL, 
-  maxAge = NULL, 
-  excludedCovariateConceptIds = excludedCovariates_Union$conceptId
-)
+comboTcis <- c(comboTcis, lapply(seq_len(nrow(allCombos)), function(i) {
+  list(
+    targetId = allCombos$targetId[i],
+    comparatorId = allCombos$comparatorId[i],
+    indicationId = allCombos$indicationId[i],
+    genderConceptIds = c(8507, 8532),
+    minAge = NULL,
+    maxAge = NULL,
+    excludedCovariateConceptIds = excludedCovariates_Union$conceptId
+  )
+}))
 
 message(sprintf("Created %d combination TCI comparisons", length(comboTcis)))
 
@@ -1112,3 +1050,4 @@ message("")
 message("Analysis specifications saved to inst/fullStudyAnalysisSpecification.json")
 
 message("CohortAlgebra specifications saved to inst/cohortAlgebraSpecifications.json")
+
