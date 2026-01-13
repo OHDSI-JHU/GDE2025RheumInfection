@@ -41,7 +41,20 @@ cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
     1794239, # Uveitis
     1794240, # SLE
     1794241, # SSc
-    1794242  # DM
+    1794242,  # DM
+    1794530, 1794529,
+    1794395, 1793813,
+    1794528, 1794527,
+    1795370, 1795371, 
+    1795374, 1795375,
+    1795378, 1795379,
+    1795381, 1795382,
+    1795385, 1795386,
+    1795372, 1795373,
+    1795375, 1795376,
+    1795377, 1795380,
+    1795383, 1795384,
+    1795387, 1795388
   ),
   generateStats = TRUE
 )
@@ -64,7 +77,17 @@ name_map <- list(
   '1794239' = "Uveitis",
   '1794240' = "SLE",
   '1794241' = "SSc",
-  '1794242' = "DM"
+  '1794242' = "DM",
+  '1794531' =	"MMF+RTX (Combination) - BM-MX - drop RTX",
+  '1794532' =	"MMF+RTX (Combination) - BM-MX - drop MMF",
+  '1794530' = "MMF+IVIG (Combination) - BM-MX - drop IVIG",
+  '1794529' = "MMF+IVIG (Combination) - BM-MX - drop MMF",
+  '1794395' = "MMF+MTX (Combination) - BM-MX - drop MTX",
+  '1793813' = "MMF+MTX (Combination) - BM-MX - drop MMF",
+  '1795035'	= "MMF+AZA (Combination) - BM-MX - drop AZA",
+  '1795036' =	"MMF+AZA (Combination) - BM-MX - drop MMF",
+  '1794527' = "MMF+JAKi (Combination) - BM-MX - drop JAKi",
+  '1794528' = "MMF+JAKi (Combination) - BM-MX - drop MMF"
 )
 
 cohortDefinitionSet$atlasId <- cohortDefinitionSet$cohortId  # keep original ATLAS IDs

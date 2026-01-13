@@ -91,14 +91,14 @@ with ctePersons(person_id) as (
 select person_id, drug_exposure_start_date, drug_exposure_end_date
 INTO #drugTarget
 FROM (
-	select de.PERSON_ID, DRUG_EXPOSURE_START_DATE, DATEADD(day,180,DRUG_EXPOSURE_START_DATE) as DRUG_EXPOSURE_END_DATE 
+	select de.PERSON_ID, DRUG_EXPOSURE_START_DATE, DATEADD(day,28,DRUG_EXPOSURE_START_DATE) as DRUG_EXPOSURE_END_DATE 
 	FROM @cdm_database_schema.DRUG_EXPOSURE de
 	JOIN ctePersons p on de.person_id = p.person_id
 	JOIN #Codesets cs on cs.codeset_id = 7 AND de.drug_concept_id = cs.concept_id
 
 	UNION ALL
 
-	select de.PERSON_ID, DRUG_EXPOSURE_START_DATE, DATEADD(day,180,DRUG_EXPOSURE_START_DATE) as DRUG_EXPOSURE_END_DATE 
+	select de.PERSON_ID, DRUG_EXPOSURE_START_DATE, DATEADD(day,28,DRUG_EXPOSURE_START_DATE) as DRUG_EXPOSURE_END_DATE 
 	FROM @cdm_database_schema.DRUG_EXPOSURE de
 	JOIN ctePersons p on de.person_id = p.person_id
 	JOIN #Codesets cs on cs.codeset_id = 7 AND de.drug_source_concept_id = cs.concept_id
@@ -118,7 +118,7 @@ JOIN
     JOIN 
     (
       --cteEndDates
-      select PERSON_ID, DATEADD(day,-1 * 90,EVENT_DATE) as END_DATE -- unpad the end date by 90
+      select PERSON_ID, DATEADD(day,-1 * 28,EVENT_DATE) as END_DATE -- unpad the end date by 28
       FROM
       (
 				select PERSON_ID, EVENT_DATE, EVENT_TYPE, 
@@ -132,8 +132,8 @@ JOIN
 
 					UNION ALL
 
-					-- add the end dates with NULL as the row number, padding the end dates by 90 to allow a grace period for overlapping ranges.
-					select PERSON_ID, DATEADD(day,90,DRUG_EXPOSURE_END_DATE), 1 as EVENT_TYPE, NULL
+					-- add the end dates with NULL as the row number, padding the end dates by 28 to allow a grace period for overlapping ranges.
+					select PERSON_ID, DATEADD(day,28,DRUG_EXPOSURE_END_DATE), 1 as EVENT_TYPE, NULL
 					FROM #drugTarget D
 				) RAWDATA
       ) E

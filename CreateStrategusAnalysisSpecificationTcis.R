@@ -38,7 +38,6 @@ excludedCovariates_RTX_IVIG = read.csv("inst/excludedCovariates_RTX_IVIG.csv")
 excludedCovariates_RTX_MMF = read.csv("inst/excludedCovariates_RTX_MMF.csv")
 
 
-
 tcis <- list(
   # ---------------- SLE (1794240) ----------------
   list(targetId = 1794247, comparatorId = 1794245, indicationId = 1794240, genderConceptIds = c(8507, 8532), minAge = NULL, maxAge = NULL, excludedCovariateConceptIds = excludedCovariates_JAKi_RTX$conceptId),
@@ -85,7 +84,7 @@ outcomes <- tibble(
     1791945, # varicella zoster (Specific)
     1792481, # varicella zoster (New)
     1792205, # PML
-    1793889  # Hospitalized Infection - skipping for now due to runtime
+    1793889  # Hospitalized Infection - optimized slightly
   ),
   cleanWindow = c(
     365, 365, 365, 365,
@@ -695,26 +694,23 @@ analysesToExclude <- expand.grid(
 ) %>%
   anti_join(analysisToInclude, by = join_by(exposureId, analysisId))
 
-# Create the sccsAnalysesSpecifications object for v6
 sccsAnalysesSpecifications <- SelfControlledCaseSeries::createSccsAnalysesSpecifications(
   sccsAnalysisList = sccsAnalysisList,
   exposuresOutcomeList = eoList,
   combineDataFetchAcrossOutcomes = FALSE,
   sccsDiagnosticThresholds = SelfControlledCaseSeries::createSccsDiagnosticThresholds(
-    mdrrThreshold = Inf,
+    mdrrThreshold = 1000000000,
     easeThreshold = 0.25,
     timeTrendMaxRatio = 1.1,
     rareOutcomeMaxPrevalence = 0.1
-#    eventObservationDependenceNullBounds = c(0.5, 2),
-#    eventExposureDependenceNullBounds =  c(0.8, 1.25)
   )
 )
 
-# Create module specifications with the new parameter structure
-selfControlledModuleSpecifications <- sccsModuleSettingsCreator$createModuleSpecifications(
-  sccsAnalysesSpecifications = sccsAnalysesSpecifications
-)
 
+# Convert R6 → plain list before handing to Strategus
+selfControlledModuleSpecifications <- sccsModuleSettingsCreator$createModuleSpecifications(
+  sccsAnalysesSpecifications = sccsAnalysesSpecifications$toList()
+)
 
 # PatientLevelPredictionModule -------------------------------------------------
 # plpModuleSettingsCreator <- PatientLevelPredictionModule$new()
@@ -780,11 +776,11 @@ analysisSpecifications <- Strategus::createEmptyAnalysisSpecifications() |>
   Strategus::addSharedResources(cohortDefinitionShared) |> 
   Strategus::addSharedResources(negativeControlsShared) |>
   Strategus::addModuleSpecifications(cohortGeneratorModuleSpecifications) |>
-  #Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications)# |>
-  Strategus::addModuleSpecifications(characterizationModuleSpecifications) |>
-  Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) |>
-  Strategus::addModuleSpecifications(cohortMethodModuleSpecifications)
-  #Strategus::addModuleSpecifications(selfControlledModuleSpecifications)
+  #Strategus::addModuleSpecifications(cohortDiagnosticsModuleSpecifications) |>
+  #Strategus::addModuleSpecifications(characterizationModuleSpecifications) |>
+  #Strategus::addModuleSpecifications(cohortIncidenceModuleSpecifications) |>
+  #Strategus::addModuleSpecifications(cohortMethodModuleSpecifications)
+  Strategus::addModuleSpecifications(selfControlledModuleSpecifications)
   #Strategus::addModuleSpecifications(plpModuleSpecifications)
 
 ParallelLogger::saveSettingsToJson(

@@ -54,7 +54,7 @@
 	"EndStrategy" : {
 		"CustomEra" : {
 			"DrugCodesetId" : 3,
-			"GapDays" : 90,
+			"GapDays" : 180,
 			"Offset" : 90,
 			"DaysSupplyOverride" : 180
 		}
