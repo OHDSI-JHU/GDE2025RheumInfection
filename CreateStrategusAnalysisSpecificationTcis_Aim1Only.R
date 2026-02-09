@@ -88,7 +88,7 @@ outcomes <- tibble(
   ),
   cleanWindow = c(
     365, 365, 365, 365,
-    365, 365, 365, 365, 365   # removed one clean window to line up with number of outcomes
+    365, 365, 365, 9999, 30   # removed one clean window to line up with number of outcomes
   )
 )
 
