@@ -46,7 +46,7 @@ cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
     1794395, 1793813,
     1794528, 1794527,
     1795370, 1795371, 
-    1795374, 1795375,
+    1795374,
     1795378, 1795379,
     1795381, 1795382,
     1795385, 1795386,
@@ -54,7 +54,10 @@ cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
     1795375, 1795376,
     1795377, 1795380,
     1795383, 1795384,
-    1795387, 1795388
+    1795387, 1795388,
+    1795629, 1795628,
+    1795626, 1795624,
+    1795625, 1795627
   ),
   generateStats = TRUE
 )
@@ -87,7 +90,13 @@ name_map <- list(
   '1795035'	= "MMF+AZA (Combination) - BM-MX - drop AZA",
   '1795036' =	"MMF+AZA (Combination) - BM-MX - drop MMF",
   '1794527' = "MMF+JAKi (Combination) - BM-MX - drop JAKi",
-  '1794528' = "MMF+JAKi (Combination) - BM-MX - drop MMF"
+  '1794528' = "MMF+JAKi (Combination) - BM-MX - drop MMF",
+  '1795629'	= "MMF or MTX or AZA + JAKi - drop First",	
+  '1795628'	= "MMF or MTX or AZA + JAKi- drop JAKi",	
+  '1795626'	= "MMF or MTX or AZA + RTX - drop First",	
+  '1795627'	= "MMF or MTX or AZA + IVIG - drop IVIG",
+  '1795625'	= "MMF or MTX or AZA + IVIG - drop First",		
+  '1795624'	= "MMF or MTX or AZA + RTX - drop RTX"
 )
 
 cohortDefinitionSet$atlasId <- cohortDefinitionSet$cohortId  # keep original ATLAS IDs
