@@ -16,27 +16,34 @@ atlas_id,cohort_id,cohort_name,logic_description,generate_stats
 1794240,1794240,SLE,NA,TRUE
 1794241,1794241,SSc,NA,TRUE
 1794242,1794242,DM,NA,TRUE
-1794548,1794548,IVIG+JAKi (Combination) - BM-MX - drop JAKi,NA,TRUE
-1794547,1794547,IVIG+JAKi (Combination) - BM-MX - drop IVIG,NA,TRUE
-1794546,1794546,IVIG+MMF (Combination) - BM-MX - drop MMF,NA,TRUE
-1794545,1794545,IVIG+MMF (Combination) - BM-MX - drop IVIG,NA,TRUE
-1794544,1794544,IVIG+RTX (Combination) - BM-MX - drop RTX,NA,TRUE
-1794543,1794543,IVIG+RTX (Combination) - BM-MX - drop IVIG,NA,TRUE
-1794542,1794542,JAKi+IVIG (Combination) - BM-MX - drop 2nd,NA,TRUE
-1794541,1794541,JAKi+IVIG (Combination) - BM-MX - drop JAKi,NA,TRUE
-1794540,1794540,JAKi+MMF (Combination) - BM-MX - drop MMF,NA,TRUE
-1794539,1794539,JAKi+MMF (Combination) - BM-MX - drop JAKi,NA,TRUE
-1794538,1794538,JAKi+RTX (Combination) - BM-MX - drop RTX,NA,TRUE
-1794537,1794537,JAKi+RTX (Combination) - BM-MX - drop JAKi,NA,TRUE
-1794536,1794536,RTX+IVIG (Combination) - BM-MX - drop IVIG,NA,TRUE
-1794535,1794535,RTX+IVIG (Combination) - BM-MX - drop RTX,NA,TRUE
-1794534,1794534,RTX+JAKi (Combination) - BM-MX - drop JAKi,NA,TRUE
-1794533,1794533,RTX+JAKi (Combination) - BM-MX - drop RTX,NA,TRUE
-1794532,1794532,RTX+MMF (Combination) - BM-MX - drop MMF,NA,TRUE
-1794531,1794531,RTX+MMF (Combination) - BM-MX - drop RTX,NA,TRUE
 1794530,1794530,MMF+IVIG (Combination) - BM-MX - drop IVIG,NA,TRUE
 1794529,1794529,MMF+IVIG (Combination) - BM-MX - drop MMF,NA,TRUE
-1794395,1794395,MMF+RTX (Combination) - BM-MX - drop RTX,NA,TRUE
-1793813,1793813,MMF+RTX (Combination) - BM-MX - drop MMF,NA,TRUE
+1794395,1794395,MMF+MTX (Combination) - BM-MX - drop MTX,NA,TRUE
+1793813,1793813,MMF+MTX (Combination) - BM-MX - drop MMF,NA,TRUE
 1794528,1794528,MMF+JAKi (Combination) - BM-MX - drop MMF,NA,TRUE
 1794527,1794527,MMF+JAKi (Combination) - BM-MX - drop JAKi,NA,TRUE
+1795370,1795370,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+IVIG (Combination) - BM-MX - drop MTX,NA,TRUE
+1795371,1795371,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+IVIG (Combination) - BM-MX - drop IVIG,NA,TRUE
+1795374,1795374,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+MMF (Combination) - BM-MX - drop MMF,NA,TRUE
+1795375,1795375,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+MMF (Combination) - BM-MX - drop MTX,NA,TRUE
+1795378,1795378,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+AZA (Combination) - BM-MX - drop AZA,NA,TRUE
+1795379,1795379,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+AZA (Combination) - BM-MX - drop MTX,NA,TRUE
+1795381,1795381,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+RTX (Combination) - BM-MX - drop RTX,NA,TRUE
+1795382,1795382,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+RTX (Combination) - BM-MX - drop MTX,NA,TRUE
+1795385,1795385,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+JAKi (Combination) - BM-MX - drop MTX,NA,TRUE
+1795386,1795386,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+JAKi (Combination) - BM-MX - drop JAKi,NA,TRUE
+1795372,1795372,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+IVIG (Combination) - BM-MX - drop AZA,NA,TRUE
+1795373,1795373,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+IVIG (Combination) - BM-MX - drop IVIG,NA,TRUE
+1795376,1795376,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+MMF (Combination) - BM-MX - drop AZA,NA,TRUE
+1795377,1795377,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+MTX (Combination) - BM-MX - drop MTX,NA,TRUE
+1795380,1795380,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+MTX (Combination) - BM-MX - drop AZA,NA,TRUE
+1795383,1795383,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+RTX (Combination) - BM-MX - drop AZA,NA,TRUE
+1795384,1795384,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+RTX (Combination) - BM-MX - drop RTX,NA,TRUE
+1795387,1795387,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+JAKi (Combination) - BM-MX - drop AZA,NA,TRUE
+1795388,1795388,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+JAKi (Combination) - BM-MX - drop JAKi,NA,TRUE
+1795629,1795629,MMF or MTX or AZA + JAKi - drop First,NA,TRUE
+1795628,1795628,MMF or MTX or AZA + JAKi- drop JAKi,NA,TRUE
+1795626,1795626,MMF or MTX or AZA + RTX - drop First,NA,TRUE
+1795624,1795624,MMF or MTX or AZA + RTX - drop RTX,NA,TRUE
+1795625,1795625,MMF or MTX or AZA + IVIG - drop First,NA,TRUE
+1795627,1795627,MMF or MTX or AZA + IVIG - drop IVIG,NA,TRUE
