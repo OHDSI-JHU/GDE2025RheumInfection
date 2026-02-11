@@ -45,22 +45,6 @@
       ],
       "Hash": "7675813563204ce20fc1c4ffefac63b4"
     },
-    "CohortAlgebra": {
-      "Package": "CohortAlgebra",
-      "Version": "0.3.1",
-      "Source": "Repository",
-      "Repository": "https://packagemanager.posit.co/cran/2025-07-31",
-      "Requirements": [
-        "DatabaseConnector",
-        "R",
-        "SqlRender",
-        "checkmate",
-        "dplyr",
-        "lifecycle",
-        "rlang"
-      ],
-      "Hash": "f8da0260d38ce20953f0a8644c62ca97"
-    },
     "CohortGenerator": {
       "Package": "CohortGenerator",
       "Version": "0.12.2",
