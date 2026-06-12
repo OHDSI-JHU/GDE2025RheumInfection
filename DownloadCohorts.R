@@ -62,6 +62,7 @@ cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
     1797583, 1797594, 1797582, 1797593,
     1797579, 1797590, 1797578, 1797589,
     1797581, 1797592, 1797580, 1797591)
+  )
 
 # ---- rename cohorts to match your preferred labels ------------------------
 name_map <- list(
