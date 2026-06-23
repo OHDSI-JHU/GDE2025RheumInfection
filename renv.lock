@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.4.3",
+    "Version": "4.4.1",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -42,16 +42,27 @@
       "Version": "2.5.0",
       "Source": "Repository"
     },
+    "Capr": {
+      "Package": "Capr",
+      "Version": "2.1.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "Capr",
+      "RemoteRef": "v2.1.1",
+      "RemoteSha": "7d18310ab95f5e6203cfbf2b6c9e717f13c70228"
+    },
     "Characterization": {
       "Package": "Characterization",
-      "Version": "3.0.1",
+      "Version": "3.0.2",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "Characterization",
       "RemoteRef": "develop",
-      "RemoteSha": "e051e6543eb9457a70dd2621dd8bdd76556f597e"
+      "RemoteSha": "2838eb4cacaf85378541c54d988af0862c15e493"
     },
     "CirceR": {
       "Package": "CirceR",
@@ -668,8 +679,8 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "ROhdsiWebApi",
-      "RemoteRef": "webapi-3.0",
-      "RemoteSha": "ba3365271d93b93875531855bbbfb5444d5eb7fc"
+      "RemoteRef": "v1.3.3",
+      "RemoteSha": "455c81633de6d68dcd675ddb31f471c66e8fa332"
     },
     "RSQLite": {
       "Package": "RSQLite",
