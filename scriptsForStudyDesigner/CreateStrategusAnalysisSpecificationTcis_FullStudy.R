@@ -10,7 +10,7 @@ library(dplyr)
 library(Strategus)
 
 # Source the CohortAlgebraModule
-source("CohortAlgebraModule.R")
+source("scriptsForStudyDesigner/CohortAlgebraModule.R")
 
 ########################################################
 # CONFIGURATION SECTION
@@ -26,6 +26,10 @@ cohortDefinitionSet <- CohortGenerator::getCohortDefinitionSet(
 # =============================================================================
 # EXCLUDED COVARIATES
 # =============================================================================
+covariateConceptsToExclude <- CohortGenerator::readCsv(
+  file = file.path("inst", "covariateConceptsToExclude.csv")
+) |>
+  dplyr::pull("conceptId")
 excludedCovariates_JAKi_IVIG = read.csv("inst/excludedCovariates_JAKi_IVIG.csv")
 excludedCovariates_JAKi_MMF = read.csv("inst/excludedCovariates_JAKi_MMF.csv")
 excludedCovariates_JAKi_RTX = read.csv("inst/excludedCovariates_JAKi_RTX.csv")
@@ -220,6 +224,10 @@ message(sprintf("  Single-drug pairs: %d", nrow(singleDrugPairs)))
 tcis <- list()
 for (i in 1:nrow(singleDrugPairs)) {
   for (j in 1:nrow(indications)) {
+    curExcludedCovariateConceptIds <- getExcludedCovariates(
+      singleDrugPairs$targetId[i], 
+      singleDrugPairs$comparatorId[i]
+    )
     tcis[[length(tcis) + 1]] <- list(
       targetId = singleDrugPairs$targetId[i],
       comparatorId = singleDrugPairs$comparatorId[i],
@@ -227,10 +235,7 @@ for (i in 1:nrow(singleDrugPairs)) {
       genderConceptIds = c(8507, 8532),
       minAge = NULL,
       maxAge = NULL,
-      excludedCovariateConceptIds = getExcludedCovariates(
-        singleDrugPairs$targetId[i], 
-        singleDrugPairs$comparatorId[i]
-      )
+      excludedCovariateConceptIds = curExcludedCovariateConceptIds
     )
   }
 }
@@ -351,7 +356,7 @@ for (i in 1:nrow(dfUniqueSubsetCriteria)) {
   
   subsetOperators <- list()
   if (uniqueSubsetCriteria$indicationId != "") {
-    subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createCohortSubset(
+    subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createCohortSubsetOperator(
       cohortIds = uniqueSubsetCriteria$indicationId,
       negate = FALSE,
       cohortCombinationOperator = "all",
@@ -371,21 +376,21 @@ for (i in 1:nrow(dfUniqueSubsetCriteria)) {
       )
     )
   }
-  subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubset(
+  subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubsetOperator(
     priorTime = 365,
     followUpTime = 1
   )
   if (uniqueSubsetCriteria$genderConceptIds != "" ||
       uniqueSubsetCriteria$minAge != "" ||
       uniqueSubsetCriteria$maxAge != "") {
-    subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createDemographicSubset(
+    subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createDemographicSubsetOperator(
       ageMin = if(uniqueSubsetCriteria$minAge == "") 0 else as.integer(uniqueSubsetCriteria$minAge),
       ageMax = if(uniqueSubsetCriteria$maxAge == "") 99999 else as.integer(uniqueSubsetCriteria$maxAge),
       gender = if(uniqueSubsetCriteria$genderConceptIds == "") NULL else as.integer(strsplit(uniqueSubsetCriteria$genderConceptIds, ",")[[1]])
     )
   }
   if (studyStartDate != "" || studyEndDate != "") {
-    subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubset(
+    subsetOperators[[length(subsetOperators) + 1]] <- CohortGenerator::createLimitSubsetOperator(
       calendarStartDate = if (studyStartDate == "") NULL else as.Date(studyStartDate, "%Y%m%d"),
       calendarEndDate = if (studyEndDate == "") NULL else as.Date(studyEndDate, "%Y%m%d")
     )
@@ -630,19 +635,20 @@ covariateSettings <- FeatureExtraction::createDefaultCovariateSettings(
 )
 
 # Create outcome list
-outcomeList <- append(
-  lapply(seq_len(nrow(outcomes)), function(i) {
-    if (useCleanWindowForPriorOutcomeLookback)
-      priorOutcomeLookback <- outcomes$cleanWindow[i]
-    else
-      priorOutcomeLookback <- 99999
-    CohortMethod::createOutcome(
-      outcomeId = outcomes$cohortId[i],
-      outcomeOfInterest = TRUE,
-      trueEffectSize = NA,
-      priorOutcomeLookback = priorOutcomeLookback
-    )
-  }),
+outcomeList <- #append(
+  # AGS: Comment out this block to exlude outcomes of interest to run diagnostics
+  # lapply(seq_len(nrow(outcomes)), function(i) {
+  #   if (useCleanWindowForPriorOutcomeLookback)
+  #     priorOutcomeLookback <- outcomes$cleanWindow[i]
+  #   else
+  #     priorOutcomeLookback <- 99999
+  #   CohortMethod::createOutcome(
+  #     outcomeId = outcomes$cohortId[i],
+  #     outcomeOfInterest = TRUE,
+  #     trueEffectSize = NA,
+  #     priorOutcomeLookback = priorOutcomeLookback
+  #   )
+  # }),
   lapply(negativeControlOutcomeCohortSet$cohortId, function(i) {
     CohortMethod::createOutcome(
       outcomeId = i,
@@ -650,7 +656,7 @@ outcomeList <- append(
       trueEffectSize = 1
     )
   })
-)
+#)
 
 # =============================================================================
 # BUILD TCOs FOR COHORT METHOD
@@ -697,7 +703,7 @@ for (i in seq_along(tcis)) {
     targetId = targetId,
     comparatorId = comparatorId,
     outcomes = outcomeList,
-    excludedCovariateConceptIds = tci$excludedCovariateConceptIds
+    excludedCovariateConceptIds = c(tci$excludedCovariateConceptIds, covariateConceptsToExclude)
   )
 }
 message(sprintf("    Added %d single-drug TCOs", length(targetComparatorOutcomesList)))
@@ -714,7 +720,7 @@ for (i in 1:nrow(allComboPairs)) {
     targetId = allComboPairs$targetId[i],
     comparatorId = allComboPairs$comparatorId[i],
     outcomes = outcomeList,
-    excludedCovariateConceptIds = excludedCovariates_Union$conceptId
+    excludedCovariateConceptIds = c(excludedCovariates_Union$conceptId, covariateConceptsToExclude)
   )
   comboTCOCount <- comboTCOCount + 1
 }

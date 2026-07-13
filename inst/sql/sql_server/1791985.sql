@@ -59,6 +59,17 @@ UNION  select c.concept_id
   and c.invalid_reason is null
 
 ) I
+) C UNION ALL 
+SELECT 5 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (1781733,1711759,1730370,21602929,1705674,41415905,41418510,41422351,44198064,41416296,41414621,43043021,43154177,41426212,43198122,43043022,45653519,46316233,45680718,19117749,19026199,19020463,19038428,40871242,41226452,40851708,41214877,41226451,19135630,40933440,40933439,1836469,41089707,19020465,19135631,41214887,41195374,44185574,40851710,41319782,36271313,40840131,41164068,44178139,41069931,41101384,19020466,1836471,45654279,45707782,45779424,40081376,41018234,40160705,40081391)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (1781733,1711759,1730370,21602929)
+  and c.invalid_reason is null
+
+) I
 ) C;
 
 UPDATE STATISTICS #Codesets;
@@ -409,12 +420,6 @@ select @target_cohort_id as cohort_definition_id, person_id, start_date, end_dat
 FROM #final_cohort CO
 ;
 
-
--- BEGIN: Censored Stats
-
-delete from @results_database_schema.cohort_censor_stats where cohort_definition_id = @target_cohort_id;
-
--- END: Censored Stats
 
 
 

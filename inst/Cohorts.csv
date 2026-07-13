@@ -1,49 +1,65 @@
 atlas_id,cohort_id,cohort_name,logic_description,generate_stats
-1791985,1791985,pneumocystis pneumonia (Total),NA,TRUE
-1792492,1792492,pneumocystis pneumonia (Case1),NA,TRUE
-1792493,1792493,pneumocystis pneumonia (Case2),NA,TRUE
-1792494,1792494,pneumocystis pneumonia (Case3),NA,TRUE
-1791944,1791944,varicella zoster (Sensitive),NA,TRUE
-1791945,1791945,varicella zoster (Specific),NA,TRUE
-1792481,1792481,varicella zoster (New),NA,TRUE
-1792205,1792205,PML,Progressive Multifocal Leukoencephalopathy (PML),TRUE
-1793889,1793889,Hospitalized Infection,NA,TRUE
-1794247,1794247,rituximab exposures,NA,TRUE
-1794245,1794245,JAKi exposures,NA,TRUE
-1794244,1794244,MMF exposures,NA,TRUE
-1794243,1794243,IVIG exposures,NA,TRUE
-1794239,1794239,Uveitis,NA,TRUE
-1794240,1794240,SLE,NA,TRUE
-1794241,1794241,SSc,NA,TRUE
-1794242,1794242,DM,NA,TRUE
-1794530,1794530,MMF+IVIG (Combination) - BM-MX - drop IVIG,NA,TRUE
-1794529,1794529,MMF+IVIG (Combination) - BM-MX - drop MMF,NA,TRUE
-1794395,1794395,MMF+MTX (Combination) - BM-MX - drop MTX,NA,TRUE
-1793813,1793813,MMF+MTX (Combination) - BM-MX - drop MMF,NA,TRUE
-1794528,1794528,MMF+JAKi (Combination) - BM-MX - drop MMF,NA,TRUE
-1794527,1794527,MMF+JAKi (Combination) - BM-MX - drop JAKi,NA,TRUE
-1795370,1795370,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+IVIG (Combination) - BM-MX - drop MTX,NA,TRUE
-1795371,1795371,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+IVIG (Combination) - BM-MX - drop IVIG,NA,TRUE
-1795374,1795374,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+MMF (Combination) - BM-MX - drop MMF,NA,TRUE
-1795375,1795375,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+MMF (Combination) - BM-MX - drop MTX,NA,TRUE
-1795378,1795378,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+AZA (Combination) - BM-MX - drop AZA,NA,TRUE
-1795379,1795379,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+AZA (Combination) - BM-MX - drop MTX,NA,TRUE
-1795381,1795381,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+RTX (Combination) - BM-MX - drop RTX,NA,TRUE
-1795382,1795382,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+RTX (Combination) - BM-MX - drop MTX,NA,TRUE
-1795385,1795385,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+JAKi (Combination) - BM-MX - drop MTX,NA,TRUE
-1795386,1795386,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+JAKi (Combination) - BM-MX - drop JAKi,NA,TRUE
-1795372,1795372,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+IVIG (Combination) - BM-MX - drop AZA,NA,TRUE
-1795373,1795373,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+IVIG (Combination) - BM-MX - drop IVIG,NA,TRUE
-1795376,1795376,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+MMF (Combination) - BM-MX - drop AZA,NA,TRUE
-1795377,1795377,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+MTX (Combination) - BM-MX - drop MTX,NA,TRUE
-1795380,1795380,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+MTX (Combination) - BM-MX - drop AZA,NA,TRUE
-1795383,1795383,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+RTX (Combination) - BM-MX - drop AZA,NA,TRUE
-1795384,1795384,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+RTX (Combination) - BM-MX - drop RTX,NA,TRUE
-1795387,1795387,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+JAKi (Combination) - BM-MX - drop AZA,NA,TRUE
-1795388,1795388,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+JAKi (Combination) - BM-MX - drop JAKi,NA,TRUE
-1795629,1795629,MMF or MTX or AZA + JAKi - drop First,NA,TRUE
-1795628,1795628,MMF or MTX or AZA + JAKi- drop JAKi,NA,TRUE
-1795626,1795626,MMF or MTX or AZA + RTX - drop First,NA,TRUE
-1795624,1795624,MMF or MTX or AZA + RTX - drop RTX,NA,TRUE
-1795625,1795625,MMF or MTX or AZA + IVIG - drop First,NA,TRUE
-1795627,1795627,MMF or MTX or AZA + IVIG - drop IVIG,NA,TRUE
+1791985,1791985,pneumocystis pneumonia (Total),NA,FALSE
+1792492,1792492,pneumocystis pneumonia (Case1),NA,FALSE
+1792493,1792493,pneumocystis pneumonia (Case2),NA,FALSE
+1792494,1792494,pneumocystis pneumonia (Case3),NA,FALSE
+1791944,1791944,varicella zoster (Sensitive),NA,FALSE
+1791945,1791945,varicella zoster (Specific),NA,FALSE
+1792481,1792481,varicella zoster (New),NA,FALSE
+1792205,1792205,PML,Progressive Multifocal Leukoencephalopathy (PML),FALSE
+1793889,1793889,Hospitalized Infection,NA,FALSE
+1794247,1794247,rituximab exposures,NA,FALSE
+1794245,1794245,JAKi exposures,NA,FALSE
+1794244,1794244,MMF exposures,NA,FALSE
+1794243,1794243,IVIG exposures,NA,FALSE
+1794239,1794239,Uveitis,NA,FALSE
+1794240,1794240,SLE,NA,FALSE
+1794241,1794241,SSc,NA,FALSE
+1794242,1794242,DM,NA,FALSE
+1794530,1794530,MMF+IVIG (Combination) - BM-MX - drop IVIG,NA,FALSE
+1794529,1794529,MMF+IVIG (Combination) - BM-MX - drop MMF,NA,FALSE
+1794395,1794395,MMF+MTX (Combination) - BM-MX - drop MTX,NA,FALSE
+1793813,1793813,MMF+MTX (Combination) - BM-MX - drop MMF,NA,FALSE
+1794528,1794528,MMF+JAKi (Combination) - BM-MX - drop MMF,NA,FALSE
+1794527,1794527,MMF+JAKi (Combination) - BM-MX - drop JAKi,NA,FALSE
+1795370,1795370,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+IVIG (Combination) - BM-MX - drop MTX,NA,FALSE
+1795371,1795371,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+IVIG (Combination) - BM-MX - drop IVIG,NA,FALSE
+1795374,1795374,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+MMF (Combination) - BM-MX - drop MMF,NA,FALSE
+1795378,1795378,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+AZA (Combination) - BM-MX - drop AZA,NA,FALSE
+1795379,1795379,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+AZA (Combination) - BM-MX - drop MTX,NA,FALSE
+1795381,1795381,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+RTX (Combination) - BM-MX - drop RTX,NA,FALSE
+1795382,1795382,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+RTX (Combination) - BM-MX - drop MTX,NA,FALSE
+1795385,1795385,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+JAKi (Combination) - BM-MX - drop MTX,NA,FALSE
+1795386,1795386,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+JAKi (Combination) - BM-MX - drop JAKi,NA,FALSE
+1795372,1795372,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+IVIG (Combination) - BM-MX - drop AZA,NA,FALSE
+1795373,1795373,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+IVIG (Combination) - BM-MX - drop IVIG,NA,FALSE
+1795375,1795375,[PP25 Rheumatology_Infection_Malignancy] [DMARD] MTX+MMF (Combination) - BM-MX - drop MTX,NA,FALSE
+1795376,1795376,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+MMF (Combination) - BM-MX - drop AZA,NA,FALSE
+1795377,1795377,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+MTX (Combination) - BM-MX - drop MTX,NA,FALSE
+1795380,1795380,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+MTX (Combination) - BM-MX - drop AZA,NA,FALSE
+1795383,1795383,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+RTX (Combination) - BM-MX - drop AZA,NA,FALSE
+1795384,1795384,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+RTX (Combination) - BM-MX - drop RTX,NA,FALSE
+1795387,1795387,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+JAKi (Combination) - BM-MX - drop AZA,NA,FALSE
+1795388,1795388,[PP25 Rheumatology_Infection_Malignancy] [DMARD] AZA+JAKi (Combination) - BM-MX - drop JAKi,NA,FALSE
+1795629,1795629,MMF or MTX or AZA + JAKi - drop First,NA,FALSE
+1795628,1795628,MMF or MTX or AZA + JAKi- drop JAKi,NA,FALSE
+1795626,1795626,MMF or MTX or AZA + RTX - drop First,NA,FALSE
+1795624,1795624,MMF or MTX or AZA + RTX - drop RTX,NA,FALSE
+1795625,1795625,MMF or MTX or AZA + IVIG - drop First,NA,FALSE
+1795627,1795627,MMF or MTX or AZA + IVIG - drop IVIG,NA,FALSE
+1797577,1797577,[PP25 Rheumatology_Infection_Malignancy] [DMARD] SLE_vzv vax_rs,NA,FALSE
+1797587,1797587,[PP25 Rheumatology_Infection_Malignancy] [DMARD] SLE_vzv No_vax_rs,NA,FALSE
+1797576,1797576,[PP25 Rheumatology_Infection_Malignancy] [DMARD] SLE_PJP ppx_rs,NA,FALSE
+1797588,1797588,[PP25 Rheumatology_Infection_Malignancy] [DMARD] SLE_PJP No_ppx_rs,NA,FALSE
+1797583,1797583,[PP25 Rheumatology_Infection_Malignancy] [DMARD] Uveitis_vzv vax_rs,NA,FALSE
+1797594,1797594,[PP25 Rheumatology_Infection_Malignancy] [DMARD] Uveitis_vzv No_vax_rs,NA,FALSE
+1797582,1797582,[PP25 Rheumatology_Infection_Malignancy] [DMARD] Uveitis_pjp ppx_rs,NA,FALSE
+1797593,1797593,[PP25 Rheumatology_Infection_Malignancy] [DMARD] Uveitis_pjp No_ppx_rs,NA,FALSE
+1797579,1797579,[PP25 Rheumatology_Infection_Malignancy] [DMARD] SSc_vzv vax_rs,NA,FALSE
+1797590,1797590,[PP25 Rheumatology_Infection_Malignancy] [DMARD] SSc_vzv No_vax_rs,NA,FALSE
+1797578,1797578,[PP25 Rheumatology_Infection_Malignancy] [DMARD] SSc_pjp ppx_rs,NA,FALSE
+1797589,1797589,[PP25 Rheumatology_Infection_Malignancy] [DMARD] SSc_pjp No_ppx_rs,NA,FALSE
+1797581,1797581,[PP25 Rheumatology_Infection_Malignancy] [DMARD] DM_vzv vax_rs,NA,FALSE
+1797592,1797592,COPY OF [PP25 Rheumatology_Infection_Malignancy] [DMARD] DM_vzv No_vax_rs,NA,FALSE
+1797580,1797580,[PP25 Rheumatology_Infection_Malignancy] [DMARD] DM_pjp ppx_rs,NA,FALSE
+1797591,1797591,[PP25 Rheumatology_Infection_Malignancy] [DMARD] DM_pjp No_ppx_rs,NA,FALSE

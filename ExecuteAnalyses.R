@@ -17,32 +17,33 @@ Sys.setenv("_JAVA_OPTIONS"="-Xmx4g") # Sets the Java maximum heap space to 4GB
 Sys.setenv("VROOM_THREADS"=1) # Sets the number of threads to 1 to avoid deadlocks on file system
 
 # Source the CohortAlgebraModule
-source("CohortAlgebraModule.R")
+source("scriptsForStudyDesigner/CohortAlgebraModule.R")
 
 ##=========== START OF INPUTS ==========
-cdmDatabaseSchema <- "main"
-workDatabaseSchema <- "main"
+cdmDatabaseSchema <- "merative_mdcr.cdm_merative_mdcr_v3908"
+workDatabaseSchema <- "scratch.scratch_asena5"
 outputLocation <- file.path(getwd(), "results")
-databaseName <- "Eunomia" # Only used as a folder name for results from the study
+databaseName <- "MDCR" # Only used as a folder name for results from the study
 minCellCount <- 5
-cohortTableName <- "sample_study"
+cohortTableName <- "gde2025_rheum_inf"
 
 # Create the connection details for your CDM
 # More details on how to do this are found here:
 # https://ohdsi.github.io/DatabaseConnector/reference/createConnectionDetails.html
-# connectionDetails <- DatabaseConnector::createConnectionDetails(
-#   dbms = Sys.getenv("DBMS_TYPE"),
-#   connectionString = Sys.getenv("CONNECTION_STRING"),
-#   user = Sys.getenv("DBMS_USERNAME"),
-#   password = Sys.getenv("DBMS_PASSWORD")
-# )
+options(sqlRenderTempEmulationSchema = Sys.getenv("DATABRICKS_SCRATCH_SCHEMA"))
+connectionDetails <- DatabaseConnector::createConnectionDetails(
+  dbms = "spark",
+  connectionString = glue::glue("jdbc:databricks://{Sys.getenv('DATABRICKS_HOST')}/default;transportMode=http;ssl=1;AuthMech=3;httpPath={Sys.getenv('DATABRICKS_HTTP_PATH')}"),
+  user = "token",
+  password = Sys.getenv("DATABRICKS_TOKEN")
+)
 
 # For this example we will use the Eunomia sample data 
 # set. This library is not installed by default so you
 # can install this by running:
 #
 # install.packages("Eunomia")
-connectionDetails <- Eunomia::getEunomiaConnectionDetails()
+#connectionDetails <- Eunomia::getEunomiaConnectionDetails()
 
 # You can use this snippet to test your connection
 #conn <- DatabaseConnector::connect(connectionDetails)
@@ -57,8 +58,8 @@ connectionDetails <- Eunomia::getEunomiaConnectionDetails()
 # Set which phases to run. This allows you to run phases separately if needed.
 # For a complete run, set all to TRUE.
 
-runPhase1_CohortGeneration <- TRUE
-runPhase2_CohortAlgebra <- TRUE
+runPhase1_CohortGeneration <- FALSE
+runPhase2_CohortAlgebra <- FALSE
 runPhase3_AnalysisModules <- TRUE
 
 
