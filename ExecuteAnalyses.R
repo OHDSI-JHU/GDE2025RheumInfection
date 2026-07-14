@@ -22,10 +22,11 @@ source("scriptsForStudyDesigner/CohortAlgebraModule.R")
 ##=========== START OF INPUTS ==========
 cdmDatabaseSchema <- "merative_mdcr.cdm_merative_mdcr_v3908"
 workDatabaseSchema <- "scratch.scratch_asena5"
-outputLocation <- file.path(getwd(), "results")
+resultsFolder <- file.path(getwd(), "results") # Where the output files will be written
+workFolder <- file.path(getwd(), "strategusInternals") # Where the intermediate work files will be written
 databaseName <- "MDCR" # Only used as a folder name for results from the study
 minCellCount <- 5
-cohortTableName <- "gde2025_rheum_inf"
+cohortTableName <- "gde2025_rheum_inf_v2"
 
 # Create the connection details for your CDM
 # More details on how to do this are found here:
@@ -58,8 +59,8 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(
 # Set which phases to run. This allows you to run phases separately if needed.
 # For a complete run, set all to TRUE.
 
-runPhase1_CohortGeneration <- FALSE
-runPhase2_CohortAlgebra <- FALSE
+runPhase1_CohortGeneration <- TRUE
+runPhase2_CohortAlgebra <- TRUE
 runPhase3_AnalysisModules <- TRUE
 
 
@@ -68,8 +69,15 @@ runPhase3_AnalysisModules <- TRUE
 # =============================================================================
 
 # Create output directories
-if (!dir.exists(file.path(outputLocation, databaseName))) {
-  dir.create(file.path(outputLocation, databaseName), recursive = TRUE)
+resultsFolder <- file.path(resultsFolder, databaseName)
+workFolder <- file.path(workFolder, databaseName)
+
+if (!dir.exists(resultsFolder)) {
+  dir.create(resultsFolder, recursive = T)
+}
+
+if (!dir.exists(workFolder)) {
+  dir.create(workFolder, recursive = T)
 }
 
 # Create base execution settings
@@ -77,8 +85,8 @@ executionSettings <- Strategus::createCdmExecutionSettings(
   workDatabaseSchema = workDatabaseSchema,
   cdmDatabaseSchema = cdmDatabaseSchema,
   cohortTableNames = CohortGenerator::getCohortTableNames(cohortTable = cohortTableName),
-  workFolder = file.path(outputLocation, databaseName, "strategusWork"),
-  resultsFolder = file.path(outputLocation, databaseName, "strategusOutput"),
+  workFolder = workFolder,
+  resultsFolder = resultsFolder,
   minCellCount = minCellCount
 )
 
