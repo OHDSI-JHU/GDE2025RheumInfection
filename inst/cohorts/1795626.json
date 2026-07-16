@@ -10,7 +10,7 @@
 							{
 								"Criteria" : {
 									"DrugExposure" : {
-										"CodesetId" : 5,
+										"CodesetId" : 22,
 										"DrugTypeExclude" : false
 									}
 								},
@@ -37,7 +37,7 @@
 						"DemographicCriteriaList" : [],
 						"Groups" : []
 					},
-					"CodesetId" : 7,
+					"CodesetId" : 3,
 					"DrugTypeExclude" : false
 				}
 			}
@@ -481,6 +481,149 @@
 					}
 				]
 			}
+		},
+		{
+			"id" : 20,
+			"name" : "methotrexate",
+			"expression" : {
+				"items" : [
+					{
+						"concept" : {
+							"CONCEPT_ID" : 1305058,
+							"CONCEPT_NAME" : "methotrexate",
+							"STANDARD_CONCEPT" : "S",
+							"STANDARD_CONCEPT_CAPTION" : "Standard",
+							"INVALID_REASON" : "V",
+							"INVALID_REASON_CAPTION" : "Valid",
+							"CONCEPT_CODE" : "6851",
+							"DOMAIN_ID" : "Drug",
+							"VOCABULARY_ID" : "RxNorm",
+							"CONCEPT_CLASS_ID" : "Ingredient"
+						},
+						"isExcluded" : false,
+						"includeDescendants" : true,
+						"includeMapped" : false
+					}
+				]
+			}
+		},
+		{
+			"id" : 21,
+			"name" : "azathioprine",
+			"expression" : {
+				"items" : [
+					{
+						"concept" : {
+							"CONCEPT_ID" : 19014878,
+							"CONCEPT_NAME" : "azathioprine",
+							"STANDARD_CONCEPT" : "S",
+							"STANDARD_CONCEPT_CAPTION" : "Standard",
+							"INVALID_REASON" : "V",
+							"INVALID_REASON_CAPTION" : "Valid",
+							"CONCEPT_CODE" : "1256",
+							"DOMAIN_ID" : "Drug",
+							"VOCABULARY_ID" : "RxNorm",
+							"CONCEPT_CLASS_ID" : "Ingredient"
+						},
+						"isExcluded" : false,
+						"includeDescendants" : true,
+						"includeMapped" : false
+					}
+				]
+			}
+		},
+		{
+			"id" : 22,
+			"name" : "MTX or MMF or AZA",
+			"expression" : {
+				"items" : [
+					{
+						"concept" : {
+							"CONCEPT_ID" : 19003999,
+							"CONCEPT_NAME" : "mycophenolate mofetil",
+							"STANDARD_CONCEPT" : "S",
+							"STANDARD_CONCEPT_CAPTION" : "Standard",
+							"INVALID_REASON" : "V",
+							"INVALID_REASON_CAPTION" : "Valid",
+							"CONCEPT_CODE" : "68149",
+							"DOMAIN_ID" : "Drug",
+							"VOCABULARY_ID" : "RxNorm",
+							"CONCEPT_CLASS_ID" : "Ingredient"
+						},
+						"isExcluded" : false,
+						"includeDescendants" : true,
+						"includeMapped" : false
+					},
+					{
+						"concept" : {
+							"CONCEPT_ID" : 21603896,
+							"CONCEPT_NAME" : "mycophenolic acid; systemic",
+							"STANDARD_CONCEPT" : "C",
+							"STANDARD_CONCEPT_CAPTION" : "Classification",
+							"INVALID_REASON" : "V",
+							"INVALID_REASON_CAPTION" : "Valid",
+							"CONCEPT_CODE" : "L04AA06",
+							"DOMAIN_ID" : "Drug",
+							"VOCABULARY_ID" : "ATC",
+							"CONCEPT_CLASS_ID" : "ATC 5th"
+						},
+						"isExcluded" : false,
+						"includeDescendants" : true,
+						"includeMapped" : false
+					},
+					{
+						"concept" : {
+							"CONCEPT_ID" : 19012565,
+							"CONCEPT_NAME" : "mycophenolic acid",
+							"STANDARD_CONCEPT" : "S",
+							"STANDARD_CONCEPT_CAPTION" : "Standard",
+							"INVALID_REASON" : "V",
+							"INVALID_REASON_CAPTION" : "Valid",
+							"CONCEPT_CODE" : "7145",
+							"DOMAIN_ID" : "Drug",
+							"VOCABULARY_ID" : "RxNorm",
+							"CONCEPT_CLASS_ID" : "Ingredient"
+						},
+						"isExcluded" : false,
+						"includeDescendants" : true,
+						"includeMapped" : false
+					},
+					{
+						"concept" : {
+							"CONCEPT_ID" : 1305058,
+							"CONCEPT_NAME" : "methotrexate",
+							"STANDARD_CONCEPT" : "S",
+							"STANDARD_CONCEPT_CAPTION" : "Standard",
+							"INVALID_REASON" : "V",
+							"INVALID_REASON_CAPTION" : "Valid",
+							"CONCEPT_CODE" : "6851",
+							"DOMAIN_ID" : "Drug",
+							"VOCABULARY_ID" : "RxNorm",
+							"CONCEPT_CLASS_ID" : "Ingredient"
+						},
+						"isExcluded" : false,
+						"includeDescendants" : true,
+						"includeMapped" : false
+					},
+					{
+						"concept" : {
+							"CONCEPT_ID" : 19014878,
+							"CONCEPT_NAME" : "azathioprine",
+							"STANDARD_CONCEPT" : "S",
+							"STANDARD_CONCEPT_CAPTION" : "Standard",
+							"INVALID_REASON" : "V",
+							"INVALID_REASON_CAPTION" : "Valid",
+							"CONCEPT_CODE" : "1256",
+							"DOMAIN_ID" : "Drug",
+							"VOCABULARY_ID" : "RxNorm",
+							"CONCEPT_CLASS_ID" : "Ingredient"
+						},
+						"isExcluded" : false,
+						"includeDescendants" : true,
+						"includeMapped" : false
+					}
+				]
+			}
 		}
 	],
 	"QualifiedLimit" : {
@@ -491,14 +634,41 @@
 	},
 	"InclusionRules" : [
 		{
-			"name" : "Not on 4 specific drugs prior to index (RTX, MMF, IVIG, JAKi)",
+			"name" : "Not on 5 specific drugs prior to index (JAKi, IVIG, RTX)",
 			"expression" : {
 				"Type" : "ALL",
 				"CriteriaList" : [
 					{
 						"Criteria" : {
 							"DrugExposure" : {
-								"CodesetId" : 1,
+								"CodesetId" : 5,
+								"DrugTypeExclude" : false
+							}
+						},
+						"StartWindow" : {
+							"Start" : {
+								"Days" : 365,
+								"Coeff" : -1
+							},
+							"End" : {
+								"Days" : 1,
+								"Coeff" : 1
+							},
+							"UseIndexEnd" : false,
+							"UseEventEnd" : false
+						},
+						"RestrictVisit" : false,
+						"IgnoreObservationPeriod" : true,
+						"Occurrence" : {
+							"Type" : 2,
+							"Count" : 1,
+							"IsDistinct" : false
+						}
+					},
+					{
+						"Criteria" : {
+							"DrugExposure" : {
+								"CodesetId" : 7,
 								"DrugTypeExclude" : false
 							}
 						},
@@ -548,33 +718,6 @@
 							"Count" : 0,
 							"IsDistinct" : false
 						}
-					},
-					{
-						"Criteria" : {
-							"DrugExposure" : {
-								"CodesetId" : 7,
-								"DrugTypeExclude" : false
-							}
-						},
-						"StartWindow" : {
-							"Start" : {
-								"Days" : 365,
-								"Coeff" : -1
-							},
-							"End" : {
-								"Days" : 1,
-								"Coeff" : -1
-							},
-							"UseIndexEnd" : false,
-							"UseEventEnd" : false
-						},
-						"RestrictVisit" : false,
-						"IgnoreObservationPeriod" : true,
-						"Occurrence" : {
-							"Type" : 0,
-							"Count" : 0,
-							"IsDistinct" : false
-						}
 					}
 				],
 				"DemographicCriteriaList" : [],
@@ -600,10 +743,10 @@
 	],
 	"EndStrategy" : {
 		"CustomEra" : {
-			"DrugCodesetId" : 7,
-			"GapDays" : 28,
+			"DrugCodesetId" : 22,
+			"GapDays" : 90,
 			"Offset" : 90,
-			"DaysSupplyOverride" : 28
+			"DaysSupplyOverride" : 90
 		}
 	},
 	"CensoringCriteria" : [
@@ -615,13 +758,13 @@
 		},
 		{
 			"DrugExposure" : {
-				"CodesetId" : 1,
+				"CodesetId" : 7,
 				"DrugTypeExclude" : false
 			}
 		},
 		{
 			"DrugExposure" : {
-				"CodesetId" : 3,
+				"CodesetId" : 5,
 				"DrugTypeExclude" : false
 			}
 		}
