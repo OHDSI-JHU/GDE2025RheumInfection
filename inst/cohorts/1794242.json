@@ -22,7 +22,7 @@
 										"Days" : 30,
 										"Coeff" : -1
 									},
-									"UseIndexEnd" : false,
+									"UseIndexEnd" : true,
 									"UseEventEnd" : false
 								},
 								"RestrictVisit" : false,
