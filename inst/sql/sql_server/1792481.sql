@@ -18,11 +18,11 @@ UNION  select c.concept_id
 ) C UNION ALL 
 SELECT 6 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
 ( 
-  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (1703687,1703603,1717704)
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (1703687,1703603,1717704,1724700,1757803)
 UNION  select c.concept_id
   from @vocabulary_database_schema.CONCEPT c
   join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
-  and ca.ancestor_concept_id in (1703687,1703603,1717704)
+  and ca.ancestor_concept_id in (1703687,1703603,1717704,1724700,1757803)
   and c.invalid_reason is null
 
 ) I
@@ -34,6 +34,17 @@ UNION  select c.concept_id
   from @vocabulary_database_schema.CONCEPT c
   join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
   and ca.ancestor_concept_id in (4253627,438961,4265860,372828,45757253)
+  and c.invalid_reason is null
+
+) I
+) C UNION ALL 
+SELECT 8 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (43152237,706104,35774674,36276815,543291,45458698,40213251,44808679,36880441,40213256,706103,40213184,36264082,36861441,43196225,35408001,43152240,40213260,36259257,21601361,36266636,35745310,35408002,36856400,40213311,36857751)
+UNION  select c.concept_id
+  from @vocabulary_database_schema.CONCEPT c
+  join @vocabulary_database_schema.CONCEPT_ANCESTOR ca on c.concept_id = ca.descendant_concept_id
+  and ca.ancestor_concept_id in (43152237,706104,35774674,36276815,543291,45458698,40213251,44808679,36880441,40213256,706103,40213184,36264082,36861441,43196225,35408001,43152240,40213260,36259257,21601361,36266636,35745310,35408002,36856400,40213311,36857751)
   and c.invalid_reason is null
 
 ) I
@@ -333,12 +344,6 @@ select @target_cohort_id as cohort_definition_id, person_id, start_date, end_dat
 FROM #final_cohort CO
 ;
 
-
--- BEGIN: Censored Stats
-
-delete from @results_database_schema.cohort_censor_stats where cohort_definition_id = @target_cohort_id;
-
--- END: Censored Stats
 
 
 
