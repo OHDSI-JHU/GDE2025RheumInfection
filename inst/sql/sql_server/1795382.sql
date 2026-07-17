@@ -59,6 +59,18 @@ UNION  select c.concept_id
   and c.invalid_reason is null
 
 ) I
+) C UNION ALL 
+SELECT 20 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (1305058)
+
+) I
+) C UNION ALL 
+SELECT 21 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (19014878)
+
+) I
 ) C;
 
 UPDATE STATISTICS #Codesets;
@@ -86,7 +98,7 @@ from
 (
   select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
   FROM @cdm_database_schema.DRUG_EXPOSURE de
-JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 5)
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 3)
 ) C
 
 
@@ -107,7 +119,7 @@ from
 (
   select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
   FROM @cdm_database_schema.DRUG_EXPOSURE de
-JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 5)
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 3)
 ) C
 
 
@@ -129,7 +141,7 @@ from
 (
   select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
   FROM @cdm_database_schema.DRUG_EXPOSURE de
-JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 5)
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 3)
 ) C
 
 
@@ -146,7 +158,7 @@ from
 (
   select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
   FROM @cdm_database_schema.DRUG_EXPOSURE de
-JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 7)
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 20)
 ) C
 
 
@@ -208,7 +220,7 @@ from
 (
   select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
   FROM @cdm_database_schema.DRUG_EXPOSURE de
-JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 1)
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 3)
 ) C
 
 
@@ -234,6 +246,32 @@ from
 (
   select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
   FROM @cdm_database_schema.DRUG_EXPOSURE de
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 7)
+) C
+
+
+-- End Drug Exposure Criteria
+
+) A on A.person_id = P.person_id  AND A.START_DATE >= DATEADD(day,-365,P.START_DATE) AND A.START_DATE <= DATEADD(day,-1,P.START_DATE) ) cc on p.person_id = cc.person_id and p.event_id = cc.event_id
+GROUP BY p.person_id, p.event_id
+HAVING COUNT(cc.event_id) = 0
+-- End Correlated Criteria
+
+UNION ALL
+-- Begin Correlated Criteria
+select 2 as index_id, p.person_id, p.event_id
+from #qualified_events p
+LEFT JOIN (
+SELECT p.person_id, p.event_id 
+FROM #qualified_events P
+JOIN (
+  -- Begin Drug Exposure Criteria
+select C.person_id, C.drug_exposure_id as event_id, C.start_date, C.end_date,
+  C.visit_occurrence_id,C.start_date as sort_date
+from 
+(
+  select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
+  FROM @cdm_database_schema.DRUG_EXPOSURE de
 JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 5)
 ) C
 
@@ -247,8 +285,10 @@ HAVING COUNT(cc.event_id) = 0
 
 UNION ALL
 -- Begin Correlated Criteria
-select 2 as index_id, cc.person_id, cc.event_id
-from (SELECT p.person_id, p.event_id 
+select 3 as index_id, p.person_id, p.event_id
+from #qualified_events p
+LEFT JOIN (
+SELECT p.person_id, p.event_id 
 FROM #qualified_events P
 JOIN (
   -- Begin Drug Exposure Criteria
@@ -258,20 +298,46 @@ from
 (
   select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
   FROM @cdm_database_schema.DRUG_EXPOSURE de
-JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 3)
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 21)
 ) C
 
 
 -- End Drug Exposure Criteria
 
-) A on A.person_id = P.person_id  AND A.START_DATE >= DATEADD(day,-365,P.START_DATE) AND A.START_DATE <= DATEADD(day,1,P.START_DATE) ) cc 
-GROUP BY cc.person_id, cc.event_id
-HAVING COUNT(cc.event_id) >= 1
+) A on A.person_id = P.person_id  AND A.START_DATE >= DATEADD(day,-365,P.START_DATE) AND A.START_DATE <= DATEADD(day,-1,P.START_DATE) ) cc on p.person_id = cc.person_id and p.event_id = cc.event_id
+GROUP BY p.person_id, p.event_id
+HAVING COUNT(cc.event_id) = 0
+-- End Correlated Criteria
+
+UNION ALL
+-- Begin Correlated Criteria
+select 4 as index_id, p.person_id, p.event_id
+from #qualified_events p
+LEFT JOIN (
+SELECT p.person_id, p.event_id 
+FROM #qualified_events P
+JOIN (
+  -- Begin Drug Exposure Criteria
+select C.person_id, C.drug_exposure_id as event_id, C.start_date, C.end_date,
+  C.visit_occurrence_id,C.start_date as sort_date
+from 
+(
+  select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
+  FROM @cdm_database_schema.DRUG_EXPOSURE de
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 1)
+) C
+
+
+-- End Drug Exposure Criteria
+
+) A on A.person_id = P.person_id  AND A.START_DATE >= DATEADD(day,-365,P.START_DATE) AND A.START_DATE <= DATEADD(day,-1,P.START_DATE) ) cc on p.person_id = cc.person_id and p.event_id = cc.event_id
+GROUP BY p.person_id, p.event_id
+HAVING COUNT(cc.event_id) = 0
 -- End Correlated Criteria
 
   ) CQ on E.person_id = CQ.person_id and E.event_id = CQ.event_id
   GROUP BY E.person_id, E.event_id
-  HAVING COUNT(index_id) = 3
+  HAVING COUNT(index_id) = 5
 ) G
 -- End Criteria Group
 ) AC on AC.person_id = pe.person_id AND AC.event_id = pe.event_id
@@ -351,17 +417,17 @@ with ctePersons(person_id) as (
 select person_id, drug_exposure_start_date, drug_exposure_end_date
 INTO #drugTarget
 FROM (
-	select de.PERSON_ID, DRUG_EXPOSURE_START_DATE, DATEADD(day,28,DRUG_EXPOSURE_START_DATE) as DRUG_EXPOSURE_END_DATE 
+	select de.PERSON_ID, DRUG_EXPOSURE_START_DATE, DATEADD(day,90,DRUG_EXPOSURE_START_DATE) as DRUG_EXPOSURE_END_DATE 
 	FROM @cdm_database_schema.DRUG_EXPOSURE de
 	JOIN ctePersons p on de.person_id = p.person_id
-	JOIN #Codesets cs on cs.codeset_id = 7 AND de.drug_concept_id = cs.concept_id
+	JOIN #Codesets cs on cs.codeset_id = 20 AND de.drug_concept_id = cs.concept_id
 
 	UNION ALL
 
-	select de.PERSON_ID, DRUG_EXPOSURE_START_DATE, DATEADD(day,28,DRUG_EXPOSURE_START_DATE) as DRUG_EXPOSURE_END_DATE 
+	select de.PERSON_ID, DRUG_EXPOSURE_START_DATE, DATEADD(day,90,DRUG_EXPOSURE_START_DATE) as DRUG_EXPOSURE_END_DATE 
 	FROM @cdm_database_schema.DRUG_EXPOSURE de
 	JOIN ctePersons p on de.person_id = p.person_id
-	JOIN #Codesets cs on cs.codeset_id = 7 AND de.drug_source_concept_id = cs.concept_id
+	JOIN #Codesets cs on cs.codeset_id = 20 AND de.drug_source_concept_id = cs.concept_id
 ) E
 ;
 
@@ -378,7 +444,7 @@ JOIN
     JOIN 
     (
       --cteEndDates
-      select PERSON_ID, DATEADD(day,-1 * 28,EVENT_DATE) as END_DATE -- unpad the end date by 28
+      select PERSON_ID, DATEADD(day,-1 * 90,EVENT_DATE) as END_DATE -- unpad the end date by 90
       FROM
       (
 				select PERSON_ID, EVENT_DATE, EVENT_TYPE, 
@@ -392,8 +458,8 @@ JOIN
 
 					UNION ALL
 
-					-- add the end dates with NULL as the row number, padding the end dates by 28 to allow a grace period for overlapping ranges.
-					select PERSON_ID, DATEADD(day,28,DRUG_EXPOSURE_END_DATE), 1 as EVENT_TYPE, NULL
+					-- add the end dates with NULL as the row number, padding the end dates by 90 to allow a grace period for overlapping ranges.
+					select PERSON_ID, DATEADD(day,90,DRUG_EXPOSURE_END_DATE), 1 as EVENT_TYPE, NULL
 					FROM #drugTarget D
 				) RAWDATA
       ) E
@@ -460,6 +526,48 @@ from
 (
   select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
   FROM @cdm_database_schema.DRUG_EXPOSURE de
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 21)
+) C
+
+
+-- End Drug Exposure Criteria
+
+) C on C.person_id = I.person_id and C.start_date >= I.start_date and C.START_DATE <= I.op_end_date
+GROUP BY i.event_id, i.person_id
+
+UNION ALL
+select i.event_id, i.person_id, MIN(c.start_date) as end_date
+FROM #included_events i
+JOIN
+(
+-- Begin Drug Exposure Criteria
+select C.person_id, C.drug_exposure_id as event_id, C.start_date, C.end_date,
+  C.visit_occurrence_id,C.start_date as sort_date
+from 
+(
+  select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
+  FROM @cdm_database_schema.DRUG_EXPOSURE de
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 5)
+) C
+
+
+-- End Drug Exposure Criteria
+
+) C on C.person_id = I.person_id and C.start_date >= I.start_date and C.START_DATE <= I.op_end_date
+GROUP BY i.event_id, i.person_id
+
+UNION ALL
+select i.event_id, i.person_id, MIN(c.start_date) as end_date
+FROM #included_events i
+JOIN
+(
+-- Begin Drug Exposure Criteria
+select C.person_id, C.drug_exposure_id as event_id, C.start_date, C.end_date,
+  C.visit_occurrence_id,C.start_date as sort_date
+from 
+(
+  select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
+  FROM @cdm_database_schema.DRUG_EXPOSURE de
 JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 1)
 ) C
 
@@ -481,7 +589,7 @@ from
 (
   select de.person_id,de.drug_exposure_id,de.drug_concept_id,de.visit_occurrence_id,days_supply,quantity,refills,de.drug_exposure_start_date as start_date, COALESCE(de.drug_exposure_end_date, DATEADD(day,de.days_supply,de.drug_exposure_start_date), DATEADD(day,1,de.drug_exposure_start_date)) as end_date 
   FROM @cdm_database_schema.DRUG_EXPOSURE de
-JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 3)
+JOIN #Codesets cs on (de.drug_concept_id = cs.concept_id and cs.codeset_id = 7)
 ) C
 
 
@@ -547,146 +655,6 @@ FROM #final_cohort CO
 ;
 
 
--- BEGIN: Censored Stats
-
-delete from @results_database_schema.cohort_censor_stats where cohort_definition_id = @target_cohort_id;
-
--- END: Censored Stats
-
-
-
--- Create a temp table of inclusion rule rows for joining in the inclusion rule impact analysis
-
-select cast(rule_sequence as int) as rule_sequence
-into #inclusion_rules
-from (
-  SELECT CAST(0 as int) as rule_sequence UNION ALL SELECT CAST(1 as int) as rule_sequence
-) IR;
-
-
--- Find the event that is the 'best match' per person.  
--- the 'best match' is defined as the event that satisfies the most inclusion rules.
--- ties are solved by choosing the event that matches the earliest inclusion rule, and then earliest.
-
-select q.person_id, q.event_id
-into #best_events
-from #qualified_events Q
-join (
-	SELECT R.person_id, R.event_id, ROW_NUMBER() OVER (PARTITION BY R.person_id ORDER BY R.rule_count DESC,R.min_rule_id ASC, R.start_date ASC) AS rank_value
-	FROM (
-		SELECT Q.person_id, Q.event_id, COALESCE(COUNT(DISTINCT I.inclusion_rule_id), 0) AS rule_count, COALESCE(MIN(I.inclusion_rule_id), 0) AS min_rule_id, Q.start_date
-		FROM #qualified_events Q
-		LEFT JOIN #inclusion_events I ON q.person_id = i.person_id AND q.event_id = i.event_id
-		GROUP BY Q.person_id, Q.event_id, Q.start_date
-	) R
-) ranked on Q.person_id = ranked.person_id and Q.event_id = ranked.event_id
-WHERE ranked.rank_value = 1
-;
-
--- modes of generation: (the same tables store the results for the different modes, identified by the mode_id column)
--- 0: all events
--- 1: best event
-
-
--- BEGIN: Inclusion Impact Analysis - event
--- calculte matching group counts
-delete from @results_database_schema.cohort_inclusion_result where cohort_definition_id = @target_cohort_id and mode_id = 0;
-insert into @results_database_schema.cohort_inclusion_result (cohort_definition_id, inclusion_rule_mask, person_count, mode_id)
-select @target_cohort_id as cohort_definition_id, inclusion_rule_mask, count_big(*) as person_count, 0 as mode_id
-from
-(
-  select Q.person_id, Q.event_id, CAST(SUM(coalesce(POWER(cast(2 as bigint), I.inclusion_rule_id), 0)) AS bigint) as inclusion_rule_mask
-  from #qualified_events Q
-  LEFT JOIN #inclusion_events I on q.person_id = i.person_id and q.event_id = i.event_id
-  GROUP BY Q.person_id, Q.event_id
-) MG -- matching groups
-group by inclusion_rule_mask
-;
-
--- calculate gain counts 
-delete from @results_database_schema.cohort_inclusion_stats where cohort_definition_id = @target_cohort_id and mode_id = 0;
-insert into @results_database_schema.cohort_inclusion_stats (cohort_definition_id, rule_sequence, person_count, gain_count, person_total, mode_id)
-select @target_cohort_id as cohort_definition_id, ir.rule_sequence, coalesce(T.person_count, 0) as person_count, coalesce(SR.person_count, 0) gain_count, EventTotal.total, 0 as mode_id
-from #inclusion_rules ir
-left join
-(
-  select i.inclusion_rule_id, count_big(i.event_id) as person_count
-  from #qualified_events Q
-  JOIN #inclusion_events i on Q.person_id = I.person_id and Q.event_id = i.event_id
-  group by i.inclusion_rule_id
-) T on ir.rule_sequence = T.inclusion_rule_id
-CROSS JOIN (select count(*) as total_rules from #inclusion_rules) RuleTotal
-CROSS JOIN (select count_big(event_id) as total from #qualified_events) EventTotal
-LEFT JOIN @results_database_schema.cohort_inclusion_result SR on SR.mode_id = 0 AND SR.cohort_definition_id = @target_cohort_id AND (POWER(cast(2 as bigint),RuleTotal.total_rules) - POWER(cast(2 as bigint),ir.rule_sequence) - 1) = SR.inclusion_rule_mask -- POWER(2,rule count) - POWER(2,rule sequence) - 1 is the mask for 'all except this rule'
-;
-
--- calculate totals
-delete from @results_database_schema.cohort_summary_stats where cohort_definition_id = @target_cohort_id and mode_id = 0;
-insert into @results_database_schema.cohort_summary_stats (cohort_definition_id, base_count, final_count, mode_id)
-select @target_cohort_id as cohort_definition_id, PC.total as person_count, coalesce(FC.total, 0) as final_count, 0 as mode_id
-FROM
-(select count_big(event_id) as total from #qualified_events) PC,
-(select sum(sr.person_count) as total
-  from @results_database_schema.cohort_inclusion_result sr
-  CROSS JOIN (select count(*) as total_rules from #inclusion_rules) RuleTotal
-  where sr.mode_id = 0 and sr.cohort_definition_id = @target_cohort_id and sr.inclusion_rule_mask = POWER(cast(2 as bigint),RuleTotal.total_rules)-1
-) FC
-;
-
--- END: Inclusion Impact Analysis - event
-
--- BEGIN: Inclusion Impact Analysis - person
--- calculte matching group counts
-delete from @results_database_schema.cohort_inclusion_result where cohort_definition_id = @target_cohort_id and mode_id = 1;
-insert into @results_database_schema.cohort_inclusion_result (cohort_definition_id, inclusion_rule_mask, person_count, mode_id)
-select @target_cohort_id as cohort_definition_id, inclusion_rule_mask, count_big(*) as person_count, 1 as mode_id
-from
-(
-  select Q.person_id, Q.event_id, CAST(SUM(coalesce(POWER(cast(2 as bigint), I.inclusion_rule_id), 0)) AS bigint) as inclusion_rule_mask
-  from #best_events Q
-  LEFT JOIN #inclusion_events I on q.person_id = i.person_id and q.event_id = i.event_id
-  GROUP BY Q.person_id, Q.event_id
-) MG -- matching groups
-group by inclusion_rule_mask
-;
-
--- calculate gain counts 
-delete from @results_database_schema.cohort_inclusion_stats where cohort_definition_id = @target_cohort_id and mode_id = 1;
-insert into @results_database_schema.cohort_inclusion_stats (cohort_definition_id, rule_sequence, person_count, gain_count, person_total, mode_id)
-select @target_cohort_id as cohort_definition_id, ir.rule_sequence, coalesce(T.person_count, 0) as person_count, coalesce(SR.person_count, 0) gain_count, EventTotal.total, 1 as mode_id
-from #inclusion_rules ir
-left join
-(
-  select i.inclusion_rule_id, count_big(i.event_id) as person_count
-  from #best_events Q
-  JOIN #inclusion_events i on Q.person_id = I.person_id and Q.event_id = i.event_id
-  group by i.inclusion_rule_id
-) T on ir.rule_sequence = T.inclusion_rule_id
-CROSS JOIN (select count(*) as total_rules from #inclusion_rules) RuleTotal
-CROSS JOIN (select count_big(event_id) as total from #best_events) EventTotal
-LEFT JOIN @results_database_schema.cohort_inclusion_result SR on SR.mode_id = 1 AND SR.cohort_definition_id = @target_cohort_id AND (POWER(cast(2 as bigint),RuleTotal.total_rules) - POWER(cast(2 as bigint),ir.rule_sequence) - 1) = SR.inclusion_rule_mask -- POWER(2,rule count) - POWER(2,rule sequence) - 1 is the mask for 'all except this rule'
-;
-
--- calculate totals
-delete from @results_database_schema.cohort_summary_stats where cohort_definition_id = @target_cohort_id and mode_id = 1;
-insert into @results_database_schema.cohort_summary_stats (cohort_definition_id, base_count, final_count, mode_id)
-select @target_cohort_id as cohort_definition_id, PC.total as person_count, coalesce(FC.total, 0) as final_count, 1 as mode_id
-FROM
-(select count_big(event_id) as total from #best_events) PC,
-(select sum(sr.person_count) as total
-  from @results_database_schema.cohort_inclusion_result sr
-  CROSS JOIN (select count(*) as total_rules from #inclusion_rules) RuleTotal
-  where sr.mode_id = 1 and sr.cohort_definition_id = @target_cohort_id and sr.inclusion_rule_mask = POWER(cast(2 as bigint),RuleTotal.total_rules)-1
-) FC
-;
-
--- END: Inclusion Impact Analysis - person
-
-TRUNCATE TABLE #best_events;
-DROP TABLE #best_events;
-
-TRUNCATE TABLE #inclusion_rules;
-DROP TABLE #inclusion_rules;
 
 
 TRUNCATE TABLE #strategy_ends;
