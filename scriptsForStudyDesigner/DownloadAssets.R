@@ -66,7 +66,23 @@ name_map <- list(
   '1794239' = "Uveitis",
   '1794240' = "SLE",
   '1794241' = "SSc",
-  '1794242' = "DM"
+  '1794242' = "DM",
+  "1797576" = "SLE_PJP ppx",
+  "1797577" = "SLE_vzv vax",
+  "1797578" = "SSc_pjp ppx",
+  "1797579" = "SSc_vzv vax",
+  "1797580" = "DM_pjp ppx",
+  "1797581" = "DM_vzv vax",
+  "1797582" = "Uveitis_pjp ppx",
+  "1797583" = "Uveitis_vzv vax",
+  "1797587" = "SLE_vzv No_vax",
+  "1797588" = "SLE_PJP No_ppx",
+  "1797589" = "SSc_pjp No_ppx",
+  "1797590" = "SSc_vzv No_vax",
+  "1797591" = "DM_pjp No_ppx",
+  "1797592" = "DM_vzv No_vax",
+  "1797593" = "Uveitis_pjp No_ppx",
+  "1797594" = "Uveitis_vzv No_vax"
 )
 
 cohortDefinitionSet$atlasId <- cohortDefinitionSet$cohortId  # keep original ATLAS IDs
