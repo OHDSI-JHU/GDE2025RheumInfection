@@ -441,7 +441,7 @@ sharedResourcesList[[1]] <- cohortDefinitionShared
 if (!is.null(negativeControlOutcomeCohortSet)) {
   negativeControlsShared <- cgModuleSettingsCreator$createNegativeControlOutcomeCohortSharedResourceSpecifications(
     negativeControlOutcomeCohortSet = negativeControlOutcomeCohortSet,
-    occurrenceType = "all",
+    occurrenceType = "first",
     detectOnDescendants = TRUE
   )
   sharedResourcesList[[length(sharedResourcesList)+1]] <- negativeControlsShared
@@ -616,7 +616,6 @@ getDbCohortMethodDataArgs <- CohortMethod::createGetDbCohortMethodDataArgs(
   firstExposureOnly = FALSE,
   restrictToCommonPeriod = TRUE,
   washoutPeriod = 0,
-  removeDuplicateSubjects = "keep first",
   studyStartDate = studyStartDate,
   studyEndDate = studyEndDate,
   maxCohortSize = 0,
