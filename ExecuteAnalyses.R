@@ -16,9 +16,6 @@
 Sys.setenv("_JAVA_OPTIONS"="-Xmx4g") # Sets the Java maximum heap space to 4GB
 Sys.setenv("VROOM_THREADS"=1) # Sets the number of threads to 1 to avoid deadlocks on file system
 
-# Source the CohortAlgebraModule
-source("CohortAlgebraModule.R")
-
 ##=========== START OF INPUTS ==========
 cdmDatabaseSchema <- "main"
 workDatabaseSchema <- "main"
