@@ -16,13 +16,11 @@
 Sys.setenv("_JAVA_OPTIONS"="-Xmx4g") # Sets the Java maximum heap space to 4GB
 Sys.setenv("VROOM_THREADS"=1) # Sets the number of threads to 1 to avoid deadlocks on file system
 
-# Source the CohortAlgebraModule
-source("CohortAlgebraModule.R")
-
 ##=========== START OF INPUTS ==========
 cdmDatabaseSchema <- "main"
 workDatabaseSchema <- "main"
-outputLocation <- file.path(getwd(), "results")
+resultsFolder <- file.path(getwd(), "results") # Where the output files will be written
+workFolder <- file.path(getwd(), "strategusInternals") # Where the intermediate work files will be written
 databaseName <- "Eunomia" # Only used as a folder name for results from the study
 minCellCount <- 5
 cohortTableName <- "sample_study"
@@ -50,7 +48,8 @@ connectionDetails <- Eunomia::getEunomiaConnectionDetails()
 
 
 ##=========== END OF INPUTS ==========
-
+resultsFolder <- file.path(resultsFolder, databaseName)
+workFolder <- file.path(workFolder, databaseName)
 
 analysisSpecifications <- ParallelLogger::loadSettingsFromJson(
   fileName = "inst/fullStudyAnalysisSpecification.json"
@@ -60,17 +59,22 @@ executionSettings <- Strategus::createCdmExecutionSettings(
   workDatabaseSchema = workDatabaseSchema,
   cdmDatabaseSchema = cdmDatabaseSchema,
   cohortTableNames = CohortGenerator::getCohortTableNames(cohortTable = cohortTableName),
-  workFolder = file.path(outputLocation, databaseName, "strategusWork"),
-  resultsFolder = file.path(outputLocation, databaseName, "strategusOutput"),
+  workFolder = workFolder,
+  resultsFolder = resultsFolder,
   minCellCount = minCellCount
 )
 
-if (!dir.exists(file.path(outputLocation, databaseName))) {
-  dir.create(file.path(outputLocation, databaseName), recursive = T)
+if (!dir.exists(resultsFolder)) {
+  dir.create(resultsFolder, recursive = T)
 }
+
+if (!dir.exists(workFolder)) {
+  dir.create(workFolder, recursive = T)
+}
+
 ParallelLogger::saveSettingsToJson(
   object = executionSettings,
-  fileName = file.path(outputLocation, databaseName, "executionSettings.json")
+  fileName = file.path(resultsFolder, "executionSettings.json")
 )
 
 Strategus::execute(
