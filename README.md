@@ -37,12 +37,12 @@ connectivity via R, you are ready to take the next step.
 
 To get started, you will want to download the study code in this repository
 to your local machine. Instructions for downloading are found [here](https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives#downloading-source-code-archives-from-the-repository-view). In this guide, we will assume that you have
-downloaded the .ZIP archive to **`D:/git/ohdsi-studies/SemaglutideNaion`.**
+downloaded the .ZIP archive to **`D:/git/ohdsi-studies/GDE2025RheumInfection`.**
 
 ## Restore the execution environment
 
-[Use RStudio to open the project file](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects#:~:text=There%20are%20several%20ways%20to,Rproj).) `SemaglutideNaion.Rproj` which is found in 
-the root directory of `D:/git/ohdsi-studies/SemaglutideNaion` (or wherever
+[Use RStudio to open the project file](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects#:~:text=There%20are%20several%20ways%20to,Rproj).) `GDE2025RheumInfection.Rproj` which is found in 
+the root directory of `D:/git/ohdsi-studies/GDE2025RheumInfection` (or wherever
 you opted to download the study package). When you open the project, you will
 see the following:
 
@@ -69,7 +69,7 @@ Type 'q()' to quit R.
 - Downloading renv ... OK
 - Installing renv  ... OK
 
-- Project 'D:/git/ohdsi-studies/SemaglutideNaion' loaded. [renv 1.0.7]
+- Project 'D:/git/ohdsi-studies/GDE2025RheumInfection' loaded. [renv 1.0.7]
 - One or more packages recorded in the lockfile are not installed.
 - Use `renv::status()` for more details.
 ```
@@ -139,7 +139,7 @@ To detail these settings:
 - **workDatabaseSchema**: The name of the database schema that will hold your cohort tables. 
 You must have write access to this schema to create/drop tables and to insert/delete data.
 - **outputLocation**: Set this to the path where you have your project, in our
-example `D:/git/ohdsi-studies/SemaglutideNaion`.
+example `D:/git/ohdsi-studies/GDE2025RheumInfection`.
 - **databaseName**: Set this to the name of your site's OMOP CDM database. Please avoid special
 characters as this value is used to create a folder with the `databaseName` to hold the results
 of running the study.
@@ -251,19 +251,19 @@ code remains the same.
 ## Sharing Results
 
 Once you have successfully executed the study, your results will be located in
-the folder: `D:/git/ohdsi-studies/SemaglutideNaion/results/<your databasename>/strategusOutput`.
+the folder: `D:/git/ohdsi-studies/GDE2025RheumInfection/results/<your databasename>/strategusOutput`.
 Within this folder you will see subfolders for each of the Strategus HADES analytical
 modules that produced results. These results are stored as CSV files which you can inspect
 before providing the results to the study coordinator.
 
 Once you have reviewed your results and are ready to provide them to the study
 coordinator, you can use the `ShareResults.R` script located in the root of the 
-project in `D:/git/ohdsi-studies/SemaglutideNaion`. This script will require some modifications
+project in `D:/git/ohdsi-studies/GDE2025RheumInfection`. This script will require some modifications
 to reflect the choices you made when running the study:
 
 ```r
 ##=========== START OF INPUTS ==========
-outputLocation <- 'D:/git/ohdsi-studies/SemaglutideNaion'
+outputLocation <- 'D:/git/ohdsi-studies/GDE2025RheumInfection'
 databaseName <- "MDCD"
 # For uploading the results. You should have received the key file from the study coordinator:
 keyFileName <- "[location where you are storing: e.g. ~/keys/study-data-site-covid19.dat]"
@@ -275,7 +275,7 @@ userName <- "[user name provided by the study coordinator: eg: study-data-site-c
 To explain these settings:
 
 - **outputLocation**: Set this to the path where you have your project, in our
-example `D:/git/ohdsi-studies/SemaglutideNaion`. This must match what you
+example `D:/git/ohdsi-studies/GDE2025RheumInfection`. This must match what you
 set in your `StrategusCodeToRun.R`.
 - **databaseName**: Set this to the name of your site's OMOP CDM database to 
 match what you set in your `StrategusCodeToRun.R`.
