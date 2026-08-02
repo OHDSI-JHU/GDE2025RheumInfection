@@ -41,64 +41,61 @@ cohortDefinitionSet <- ROhdsiWebApi::exportCohortDefinitionSet(
     1794239, # Uveitis
     1794240, # SLE
     1794241, # SSc
-    1794242,  # DM
-    1794530, 1794529,
-    1794395, 1793813,
-    1794528, 1794527,
-    1795370, 1795371, 
-    1795374,
-    1795378, 1795379,
-    1795381, 1795382,
-    1795385, 1795386,
-    1795372, 1795373,
-    1795375, 1795376,
-    1795377, 1795380,
-    1795383, 1795384,
-    1795387, 1795388,
-    1795629, 1795628,
-    1795626, 1795624,
-    1795625, 1795627,
-    1797577, 1797587, 1797576, 1797588,
-    1797583, 1797594, 1797582, 1797593,
-    1797579, 1797590, 1797578, 1797589,
-    1797581, 1797592, 1797580, 1797591)
+    1794242, #  DM
+    1797577, # SLE_vzv vax_rs
+    1797583, # Uveitis_vzv vax_rs
+    1797579, # SSc_vzv vax_rs
+    1797581, # DM_vzv vax_rs
+    1797587, # SLE_vzv No_vax_rs
+    1797594, # Uveitis_vzv No_vax_rs
+    1797590, # SSc_vzv No_vax_rs
+    1797592, # DM_vzv No_vax_rs
+    1797576, # SLE_PJP ppx_rs
+    1797582, # Uveitis_pjp ppx_rs
+    1797578, # SSc_pjp ppx_rs
+    1797580, # DM_pjp ppx_rs
+    1797588, # SLE_PJP No_ppx_rs
+    1797593, # Uveitis_pjp No_ppx_rs
+    1797589, # SSc_pjp No_ppx_rs
+    1797591 # DM_pjp No_ppx_rs
+    )
   )
 
 # ---- rename cohorts to match your preferred labels ------------------------
 name_map <- list(
-  '1791985' = "pneumocystis pneumonia (Total)",
-  '1792492' = "pneumocystis pneumonia (Case1)",
-  '1792493' = "pneumocystis pneumonia (Case2)",
-  '1792494' = "pneumocystis pneumonia (Case3)",
-  '1791944' = "varicella zoster (Sensitive)",
-  '1791945' = "varicella zoster (Specific)",
-  '1792481' = "varicella zoster (New)",
-  '1792205' = "PML",
-  '1793889' = "Hospitalized Infection",
-  '1794247' = "rituximab exposures",
-  '1794245' = "JAKi exposures",
-  '1794244' = "MMF exposures",
-  '1794243' = "IVIG exposures",
-  '1794239' = "Uveitis",
-  '1794240' = "SLE",
-  '1794241' = "SSc",
-  '1794242' = "DM",
-  '1794531' =	"MMF+RTX (Combination) - BM-MX - drop RTX",
-  '1794532' =	"MMF+RTX (Combination) - BM-MX - drop MMF",
-  '1794530' = "MMF+IVIG (Combination) - BM-MX - drop IVIG",
-  '1794529' = "MMF+IVIG (Combination) - BM-MX - drop MMF",
-  '1794395' = "MMF+MTX (Combination) - BM-MX - drop MTX",
-  '1793813' = "MMF+MTX (Combination) - BM-MX - drop MMF",
-  '1795035'	= "MMF+AZA (Combination) - BM-MX - drop AZA",
-  '1795036' =	"MMF+AZA (Combination) - BM-MX - drop MMF",
-  '1794527' = "MMF+JAKi (Combination) - BM-MX - drop JAKi",
-  '1794528' = "MMF+JAKi (Combination) - BM-MX - drop MMF",
-  '1795629'	= "MMF or MTX or AZA + JAKi - drop First",	
-  '1795628'	= "MMF or MTX or AZA + JAKi- drop JAKi",	
-  '1795626'	= "MMF or MTX or AZA + RTX - drop First",	
-  '1795627'	= "MMF or MTX or AZA + IVIG - drop IVIG",
-  '1795625'	= "MMF or MTX or AZA + IVIG - drop First",		
-  '1795624'	= "MMF or MTX or AZA + RTX - drop RTX"
+  '1791985'='pneumocystis pneumonia (Total)',
+  '1792492'='pneumocystis pneumonia (Case1)',
+  '1792493'='pneumocystis pneumonia (Case2)',
+  '1792494'='pneumocystis pneumonia (Case3)',
+  '1791944'='varicella zoster (Sensitive)',
+  '1791945'='varicella zoster (Specific)',
+  '1792481'='varicella zoster (New)',
+  '1792205'='PML',
+  '1793889'='Hospitalized Infection',
+  '1794247'='rituximab exposures',
+  '1794245'='JAKi exposures',
+  '1794244'='MMF exposures',
+  '1794243'='IVIG exposures',
+  '1794239'='Uveitis',
+  '1794240'='SLE',
+  '1794241'='SSc',
+  '1794242'=' DM',
+  '1797577'='SLE_vzv vax_rs',
+  '1797583'='Uveitis_vzv vax_rs',
+  '1797579'='SSc_vzv vax_rs',
+  '1797581'='DM_vzv vax_rs',
+  '1797587'='SLE_vzv No_vax_rs',
+  '1797594'='Uveitis_vzv No_vax_rs',
+  '1797590'='SSc_vzv No_vax_rs',
+  '1797592'='DM_vzv No_vax_rs',
+  '1797576'='SLE_PJP ppx_rs',
+  '1797582'='Uveitis_pjp ppx_rs',
+  '1797578'='SSc_pjp ppx_rs',
+  '1797580'='DM_pjp ppx_rs',
+  '1797588'='SLE_PJP No_ppx_rs',
+  '1797593'='Uveitis_pjp No_ppx_rs',
+  '1797589'='SSc_pjp No_ppx_rs',
+  '1797591'='DM_pjp No_ppx_rs'
 )
 
 cohortDefinitionSet$atlasId <- cohortDefinitionSet$cohortId  # keep original ATLAS IDs
